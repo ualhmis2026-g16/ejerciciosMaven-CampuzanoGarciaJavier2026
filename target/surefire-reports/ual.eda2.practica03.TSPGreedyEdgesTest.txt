@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: ual.eda2.practica03.TSPGreedyEdgesTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in ual.eda2.practica03.TSPGreedyEdgesTest
+ual.eda2.practica03.TSPGreedyEdgesTest.testTspGreedyEdges_NullStartVertex -- Time elapsed: 0 s
+ual.eda2.practica03.TSPGreedyEdgesTest.testTspGreedyEdges_SingleVertex -- Time elapsed: 0 s
+ual.eda2.practica03.TSPGreedyEdgesTest.testTspGreedyEdges_DisconnectedGraph -- Time elapsed: 0.001 s
+ual.eda2.practica03.TSPGreedyEdgesTest.testTspGreedyEdges_StartVertexNotInGraph -- Time elapsed: 0 s
+ual.eda2.practica03.TSPGreedyEdgesTest.testTspGreedyEdges_SmallCompleteGraph -- Time elapsed: 0.001 s
+ual.eda2.practica03.TSPGreedyEdgesTest.testTspGreedyEdges_VariedWeightGraph -- Time elapsed: 0 s

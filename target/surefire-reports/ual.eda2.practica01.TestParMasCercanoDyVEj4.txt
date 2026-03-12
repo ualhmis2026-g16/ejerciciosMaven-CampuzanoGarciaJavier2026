@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: ual.eda2.practica01.TestParMasCercanoDyVEj4
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.822 s -- in ual.eda2.practica01.TestParMasCercanoDyVEj4
+ual.eda2.practica01.TestParMasCercanoDyVEj4.barras -- Time elapsed: 0 s
+ual.eda2.practica01.TestParMasCercanoDyVEj4.parMasCercanoDyVSpain -- Time elapsed: 0.059 s
+ual.eda2.practica01.TestParMasCercanoDyVEj4.parMasCercanoDyVNAcl -- Time elapsed: 0.027 s
+ual.eda2.practica01.TestParMasCercanoDyVEj4.parMasCercanoDyVNApp -- Time elapsed: 0.075 s
+ual.eda2.practica01.TestParMasCercanoDyVEj4.parMasCercanoDyVNArd -- Time elapsed: 2.065 s
+ual.eda2.practica01.TestParMasCercanoDyVEj4.parMasCercanoDyVNArr -- Time elapsed: 0.593 s
+ual.eda2.practica01.TestParMasCercanoDyVEj4.parMasCercanoDyVEdaLand -- Time elapsed: 0.001 s

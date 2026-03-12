@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: ual.eda2.practica02.DijkstraEj5Test
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in ual.eda2.practica02.DijkstraEj5Test
+ual.eda2.practica02.DijkstraEj5Test.testSimpleGraph -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj5Test.testGraphWithCycles -- Time elapsed: 0.001 s
+ual.eda2.practica02.DijkstraEj5Test.testDisconnectedGraph -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj5Test.testNoPath -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj5Test.testPerformanceMetrics -- Time elapsed: 0 s

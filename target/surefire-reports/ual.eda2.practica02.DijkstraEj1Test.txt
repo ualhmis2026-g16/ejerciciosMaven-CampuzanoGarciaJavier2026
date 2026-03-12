@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: ual.eda2.practica02.DijkstraEj1Test
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in ual.eda2.practica02.DijkstraEj1Test
+ual.eda2.practica02.DijkstraEj1Test.loadGraphEdaLandLarge -- Time elapsed: 0.009 s
+ual.eda2.practica02.DijkstraEj1Test.testDijkstraWithCycles -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj1Test.loadGraphEdaLand -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj1Test.testDijkstraDisconnectedGraph -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj1Test.testDijkstraSimpleGraph -- Time elapsed: 0.001 s
