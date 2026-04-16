@@ -3,7 +3,7 @@ Test set: ual.eda2.practica03.TSPGreedyVertexTest
 -------------------------------------------------------------------------------
 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in ual.eda2.practica03.TSPGreedyVertexTest
 ual.eda2.practica03.TSPGreedyVertexTest.testTspGreedyVertex_StartFromDifferentVertex -- Time elapsed: 0.001 s
-ual.eda2.practica03.TSPGreedyVertexTest.testTspGreedyVertex_LargerGraph -- Time elapsed: 0 s
+ual.eda2.practica03.TSPGreedyVertexTest.testTspGreedyVertex_LargerGraph -- Time elapsed: 0.001 s
 ual.eda2.practica03.TSPGreedyVertexTest.testTspGreedyVertex_TwoVertices -- Time elapsed: 0 s
 ual.eda2.practica03.TSPGreedyVertexTest.testTspGreedyVertex_StartVertexNotInGraph -- Time elapsed: 0 s
 ual.eda2.practica03.TSPGreedyVertexTest.testTspGreedyVertex_DisconnectedGraph -- Time elapsed: 0 s

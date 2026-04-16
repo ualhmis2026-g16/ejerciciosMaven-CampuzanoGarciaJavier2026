@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TSPBruteForce.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">TSPBruteForce.java</span></div><h1>TSPBruteForce.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Clase que implementa el algoritmo TSP mediante fuerza bruta usando programación dinámica.
+ * Se utiliza memoización para evitar cálculos redundantes y se reconstruye el camino
+ * óptimo basado en los nodos visitados.
+ */
+<span class="nc" id="L11">public class TSPBruteForce {</span>
+
+    /**
+     * Resuelve el problema del TSP para el grafo dado utilizando una aproximación de fuerza bruta
+     * con programación dinámica, partiendo desde el vértice especificado.
+     *
+     * @param g El grafo sobre el cual se ejecuta el algoritmo.
+     * @param start El vértice desde el cual se inicia el recorrido.
+     * @return Un objeto Solucion que contiene la ruta óptima y su costo total.
+     */
+    public static Solucion TSPFuerzaBruta(Grafo g, Vertex start) {
+        // Validar el grafo y el vértice inicial
+<span class="pc bpc" id="L23" title="1 of 8 branches missed.">        if (g == null || g.size() == 0 || start == null || !g.getVertices().contains(start)) {</span>
+<span class="fc" id="L24">            return null; // Grafo vacío o vértice inicial inválido</span>
+        }
+
+        // Caso especial: un solo nodo en el grafo
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (g.size() == 1) {</span>
+<span class="fc" id="L29">            List&lt;Vertex&gt; ruta = new ArrayList&lt;&gt;(g.getVertices());</span>
+<span class="fc" id="L30">            ruta.add(ruta.get(0)); // Cerrar el circuito</span>
+<span class="fc" id="L31">            return new Solucion(ruta, 0.0);</span>
+        }
+
+        // Convertir el grafo a una matriz de distancias
+<span class="fc" id="L35">        double[][] matrizDistancias = convertir(g);</span>
+<span class="fc" id="L36">        int n = g.size();</span>
+<span class="fc" id="L37">        int FINISHED_STATE = (1 &lt;&lt; n) - 1; // Estado donde todos los nodos han sido visitados</span>
+<span class="fc" id="L38">        ArrayList&lt;Vertex&gt; listaVertices = new ArrayList&lt;&gt;(g.getVertices());</span>
+        
+        // Encontrar el índice del vértice inicial
+<span class="fc" id="L41">        int nodoInicio = listaVertices.indexOf(start);</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (nodoInicio == -1) {</span>
+<span class="nc" id="L43">            return null; // Vértice inicial no encontrado en el grafo</span>
+        }
+
+        // Tablas para memoización y reconstrucción de ruta
+<span class="fc" id="L47">        Double[][] memo = new Double[n][1 &lt;&lt; n];</span>
+<span class="fc" id="L48">        Integer[][] prev = new Integer[n][1 &lt;&lt; n];</span>
+
+        // Resolver el problema TSP desde el nodo de inicio especificado
+<span class="fc" id="L51">        double costo = tsp(nodoInicio, 1 &lt;&lt; nodoInicio, matrizDistancias, memo, prev, n, FINISHED_STATE, nodoInicio);</span>
+
+        // Reconstruir la ruta óptima
+<span class="fc" id="L54">        ArrayList&lt;Vertex&gt; mejorRuta = reconstruirRuta(prev, listaVertices, n, nodoInicio);</span>
+
+        // Devolver el resultado con la ruta y su costo total
+<span class="fc" id="L57">        return new Solucion(mejorRuta, costo);</span>
+    }
+
+    /**
+     * Método recursivo que resuelve el TSP para el nodo actual.
+     *
+     * @param nodoActual         El índice del nodo actual.
+     * @param estadoVisitado     Bitmask que indica los nodos ya visitados.
+     * @param matrizDistancias   Matriz de distancias del grafo.
+     * @param memo               Tabla para memoización de subproblemas.
+     * @param prev               Tabla para la reconstrucción del camino.
+     * @param n                  Número total de nodos.
+     * @param FINISHED_STATE     Estado que indica que todos los nodos han sido visitados.
+     * @param start              Índice del nodo de inicio.
+     * @return El costo mínimo acumulado desde el nodo actual hasta completar el circuito.
+     */
+    private static double tsp(int nodoActual, int estadoVisitado, double[][] matrizDistancias, 
+                              Double[][] memo, Integer[][] prev, int n, int FINISHED_STATE, int start) {
+        // Caso base: si todos los nodos han sido visitados, regresar al nodo de inicio ('start')
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (estadoVisitado == FINISHED_STATE) {</span>
+<span class="fc" id="L77">            return matrizDistancias[nodoActual][start];</span>
+        }
+
+        // Si el subproblema ya fue calculado, devolver el valor memoizado
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        if (memo[nodoActual][estadoVisitado] != null) {</span>
+<span class="nc" id="L82">            return memo[nodoActual][estadoVisitado];</span>
+        }
+
+<span class="fc" id="L85">        double mejorCostoLocal = Double.POSITIVE_INFINITY;</span>
+<span class="fc" id="L86">        int siguienteNodoOptimo = -1;</span>
+
+        // Explorar todos los nodos posibles que no hayan sido visitados
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        for (int siguienteNodo = 0; siguienteNodo &lt; n; siguienteNodo++) {</span>
+            // Si el nodo ya fue visitado, continuar
+<span class="fc bfc" id="L91" title="All 2 branches covered.">            if ((estadoVisitado &amp; (1 &lt;&lt; siguienteNodo)) != 0) continue;</span>
+
+<span class="fc" id="L93">            int nuevoEstado = estadoVisitado | (1 &lt;&lt; siguienteNodo);</span>
+<span class="fc" id="L94">            double costo = matrizDistancias[nodoActual][siguienteNodo] + </span>
+<span class="fc" id="L95">                           tsp(siguienteNodo, nuevoEstado, matrizDistancias, memo, prev, n, FINISHED_STATE, start);</span>
+
+<span class="fc bfc" id="L97" title="All 2 branches covered.">            if (costo &lt; mejorCostoLocal) {</span>
+<span class="fc" id="L98">                mejorCostoLocal = costo;</span>
+<span class="fc" id="L99">                siguienteNodoOptimo = siguienteNodo;</span>
+            }
+        }
+
+        // Almacenar el siguiente nodo óptimo para la reconstrucción del camino
+<span class="fc" id="L104">        prev[nodoActual][estadoVisitado] = siguienteNodoOptimo;</span>
+        // Memoizar el costo mínimo obtenido para este estado
+<span class="fc" id="L106">        memo[nodoActual][estadoVisitado] = mejorCostoLocal;</span>
+<span class="fc" id="L107">        return mejorCostoLocal;</span>
+    }
+
+    /**
+     * Reconstruye el camino óptimo a partir de la tabla 'prev'.
+     *
+     * @param prev          Tabla con los índices de nodos siguientes en cada subproblema.
+     * @param listaVertices Lista de todos los vértices del grafo.
+     * @param n             Número de nodos.
+     * @param nodoInicio    Índice del nodo de inicio.
+     * @return Un ArrayList que representa el camino óptimo, cerrando el circuito.
+     */
+    private static ArrayList&lt;Vertex&gt; reconstruirRuta(Integer[][] prev, ArrayList&lt;Vertex&gt; listaVertices, int n, int nodoInicio) {
+<span class="fc" id="L120">        ArrayList&lt;Vertex&gt; ruta = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L121">        int estado = 1 &lt;&lt; nodoInicio; // Estado inicial</span>
+<span class="fc" id="L122">        int nodoActual = nodoInicio;</span>
+
+<span class="fc" id="L124">        ruta.add(listaVertices.get(nodoActual));</span>
+
+        while (true) {
+<span class="fc" id="L127">            Integer siguienteNodo = prev[nodoActual][estado];</span>
+<span class="pc bpc" id="L128" title="1 of 4 branches missed.">            if (siguienteNodo == null || siguienteNodo == -1) {</span>
+<span class="nc" id="L129">                break;</span>
+            }
+<span class="fc" id="L131">            ruta.add(listaVertices.get(siguienteNodo));</span>
+<span class="fc" id="L132">            estado |= (1 &lt;&lt; siguienteNodo);</span>
+<span class="fc" id="L133">            nodoActual = siguienteNodo;</span>
+<span class="fc" id="L134">        }</span>
+
+        // Cerrar circuito si es necesario
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">        if (!ruta.get(ruta.size() - 1).equals(listaVertices.get(nodoInicio))) {</span>
+<span class="fc" id="L138">            ruta.add(listaVertices.get(nodoInicio));</span>
+        }
+
+<span class="fc" id="L141">        return ruta;</span>
+    }
+
+    /**
+     * Convierte el grafo en una matriz de distancias.
+     *
+     * @param grafo El grafo a convertir.
+     * @return Una matriz de distancias donde cada elemento representa el peso entre dos nodos.
+     */
+    public static double[][] convertir(Grafo grafo) {
+<span class="fc" id="L151">        int n = grafo.size();</span>
+<span class="fc" id="L152">        double[][] matrizDistancias = new double[n][n];</span>
+<span class="fc" id="L153">        ArrayList&lt;Vertex&gt; listaVertices = new ArrayList&lt;&gt;(grafo.getVertices());</span>
+
+        // Inicializar la matriz con valores infinitos y diagonales en 0
+<span class="fc bfc" id="L156" title="All 2 branches covered.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">            for (int j = 0; j &lt; n; j++) {</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">                if (i == j) {</span>
+<span class="fc" id="L159">                    matrizDistancias[i][j] = 0; // Misma ciudad</span>
+                } else {
+<span class="fc" id="L161">                    matrizDistancias[i][j] = Double.POSITIVE_INFINITY;</span>
+                }
+            }
+        }
+
+        // Rellenar la matriz con los pesos de las aristas
+<span class="fc bfc" id="L167" title="All 2 branches covered.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="fc" id="L168">            Vertex origen = listaVertices.get(i);</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">            for (int j = 0; j &lt; n; j++) {</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">                if (i != j) {</span>
+<span class="fc" id="L171">                    Vertex destino = listaVertices.get(j);</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">                    if (grafo.adyacentes(origen, destino)) {</span>
+<span class="fc" id="L173">                        matrizDistancias[i][j] = grafo.peso(origen, destino);</span>
+                    }
+                }
+            }
+        }
+        
+<span class="fc" id="L179">        return matrizDistancias;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

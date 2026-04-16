@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParMasCercanoIterativoMejorado.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica01</a> &gt; <span class="el_source">ParMasCercanoIterativoMejorado.java</span></div><h1>ParMasCercanoIterativoMejorado.java</h1><pre class="source lang-java linenums">package ual.eda2.practica01;
+
+import java.util.ArrayList;
+
+/**
+ * La clase {@code ParMasCercanoIterativoMejorado} contiene métodos para resolver el problema del 
+ * &quot;par más cercano de puntos&quot; de manera iterativa y mejorada.
+ * Esta implementación recorre todos los puntos en el conjunto para encontrar el par de puntos con
+ * la menor distancia entre ellos.
+ * 
+ * &lt;p&gt;El método principal, {@link #iterativoMejorado(ArrayList)}, calcula la distancia mínima 
+ * entre todos los pares de puntos en el conjunto de puntos {@code P}.&lt;/p&gt;
+ */
+<span class="nc" id="L14">public class ParMasCercanoIterativoMejorado {</span>
+	
+	 /**
+     * Calcula la distancia mínima entre todos los pares de puntos en el conjunto de puntos dado {@code P}.
+     * 
+     * &lt;p&gt;Este método recorre todos los pares de puntos en la lista, calculando la distancia entre cada par 
+     * y actualizando el valor mínimo de distancia encontrado.&lt;/p&gt;
+     * 
+     * @param P La lista de puntos a evaluar.
+     * @return La distancia mínima entre los puntos en la lista {@code P}.
+     */
+	public static double iterativoMejorado(ArrayList&lt;Poin&gt; P) {
+<span class="nc" id="L26">		int size = P.size();</span>
+<span class="nc" id="L27">		double min = Double.MAX_VALUE;  //Se pone el mayor valor, ya que vamos a ir iterando y comparando.</span>
+<span class="nc" id="L28">		double currMin = 0;</span>
+		
+<span class="nc bnc" id="L30" title="All 2 branches missed.">		for(int i=0; i&lt;size; i++) {</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">			for(int j=i+1; j&lt;size; j++) {</span>
+<span class="nc" id="L32">				currMin = distancia(P.get(i), P.get(j));</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">				if(currMin&lt;min) {</span>
+<span class="nc" id="L34">					min = currMin;</span>
+				}
+			}
+		}
+<span class="nc" id="L38">		return min;</span>
+	}
+	
+	/**
+     * Calcula la distancia euclidiana entre dos puntos {@code Poin}.
+     * 
+     * &lt;p&gt;Este método usa la fórmula de distancia euclidiana en el plano 2D para calcular la distancia 
+     * entre los puntos {@code p1} y {@code p2}.&lt;/p&gt;
+     * 
+     * @param p1 El primer punto.
+     * @param p2 El segundo punto.
+     * @return La distancia entre los puntos {@code p1} y {@code p2}.
+     */
+	public static double distancia(Poin p1, Poin p2) {
+<span class="nc" id="L52">		return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) +</span>
+<span class="nc" id="L53">						(p1.y - p2.y) * (p1.y - p2.y));</span>
+	  }
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

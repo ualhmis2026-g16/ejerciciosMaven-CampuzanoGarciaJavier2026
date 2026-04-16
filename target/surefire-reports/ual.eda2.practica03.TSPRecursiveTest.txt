@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: ual.eda2.practica03.TSPRecursiveTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in ual.eda2.practica03.TSPRecursiveTest
-ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_TwoVertices -- Time elapsed: 0.007 s
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in ual.eda2.practica03.TSPRecursiveTest
+ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_TwoVertices -- Time elapsed: 0.011 s
 ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_NullGraph -- Time elapsed: 0 s
-ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_EmptyGraph -- Time elapsed: 0 s
+ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_EmptyGraph -- Time elapsed: 0.001 s
 ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_SingleVertex -- Time elapsed: 0 s
-ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_CompleteGraph -- Time elapsed: 0 s
+ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_CompleteGraph -- Time elapsed: 0.001 s
 ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_InvalidStartVertex -- Time elapsed: 0 s
 ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_DifferentStartingPoints -- Time elapsed: 0.001 s
 ual.eda2.practica03.TSPRecursiveTest.testTspRecursive_LargeGraph -- Time elapsed: 0 s

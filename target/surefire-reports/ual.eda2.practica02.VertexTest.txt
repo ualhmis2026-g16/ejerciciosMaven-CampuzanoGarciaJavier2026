@@ -3,8 +3,8 @@ Test set: ual.eda2.practica02.VertexTest
 -------------------------------------------------------------------------------
 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in ual.eda2.practica02.VertexTest
 ual.eda2.practica02.VertexTest.testSetId -- Time elapsed: 0 s
-ual.eda2.practica02.VertexTest.testToString -- Time elapsed: 0.002 s
-ual.eda2.practica02.VertexTest.testCompareTo -- Time elapsed: 0.001 s
+ual.eda2.practica02.VertexTest.testToString -- Time elapsed: 0 s
+ual.eda2.practica02.VertexTest.testCompareTo -- Time elapsed: 0 s
 ual.eda2.practica02.VertexTest.testConstructorAndGetId -- Time elapsed: 0 s
-ual.eda2.practica02.VertexTest.testHashCode -- Time elapsed: 0 s
+ual.eda2.practica02.VertexTest.testHashCode -- Time elapsed: 0.001 s
 ual.eda2.practica02.VertexTest.testEquals -- Time elapsed: 0.001 s

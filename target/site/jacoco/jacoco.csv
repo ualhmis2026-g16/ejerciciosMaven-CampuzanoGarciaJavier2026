@@ -1,0 +1,71 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+sesion05,ual.eda2.practica02,DijkstraMainEj1,182,93,13,7,43,23,10,5,3,2
+sesion05,ual.eda2.practica02,DijkstraEj3.VertexDistancePair,0,15,0,0,0,5,0,2,0,2
+sesion05,ual.eda2.practica02,DijkstraMainEj3,275,0,20,0,66,0,15,0,5,0
+sesion05,ual.eda2.practica02,DijkstraMainEj2,275,0,20,0,66,0,15,0,5,0
+sesion05,ual.eda2.practica02,MainAuxEj5,407,0,32,0,96,0,20,0,4,0
+sesion05,ual.eda2.practica02,MainAuxEj4,282,0,24,0,70,0,15,0,3,0
+sesion05,ual.eda2.practica02,MainAuxEj7,282,0,24,0,70,0,15,0,3,0
+sesion05,ual.eda2.practica02,MainAuxEj6,424,0,36,0,104,0,22,0,4,0
+sesion05,ual.eda2.practica02,MainAuxEj8,376,0,28,0,84,0,17,0,3,0
+sesion05,ual.eda2.practica02,DijkstraEj3,4,221,1,17,2,47,2,9,1,1
+sesion05,ual.eda2.practica02,DijkstraEj4,3,209,0,16,1,48,1,9,1,1
+sesion05,ual.eda2.practica02,DijkstraEj5.AStarNode,22,29,5,1,4,9,4,3,1,3
+sesion05,ual.eda2.practica02,DijkstraEj1,15,241,1,23,3,54,2,12,1,1
+sesion05,ual.eda2.practica02,DijkstraEj2,3,244,0,24,1,51,1,13,1,1
+sesion05,ual.eda2.practica02,DijkstraEj7,4,206,1,15,2,47,2,8,1,1
+sesion05,ual.eda2.practica02,DijkstraEj8,4,364,2,16,2,72,3,10,1,3
+sesion05,ual.eda2.practica02,DijkstraEj7.VertexTriple,0,18,0,0,0,6,0,2,0,2
+sesion05,ual.eda2.practica02,DijkstraEj5,6,304,5,25,3,68,6,12,1,2
+sesion05,ual.eda2.practica02,DijkstraEj6,5,298,3,25,2,64,4,13,1,2
+sesion05,ual.eda2.practica02,DijkstraEj4.VertexTriple,0,18,0,0,0,6,0,2,0,2
+sesion05,ual.eda2.practica02,Vertex,2,48,2,4,0,13,2,8,0,7
+sesion05,ual.eda2.practica02,DijkstraEj8.VertexTriple,0,18,0,0,0,6,0,2,0,2
+sesion05,ual.eda2.practica02,Graph,48,78,5,5,9,17,4,9,1,7
+sesion05,ual.eda2.practica02,DijkstraEj6.VertexAStar,0,26,0,0,0,8,0,2,0,2
+sesion05,ual.eda2.practica02,MainEj5EDALandLarge,359,0,26,0,75,0,15,0,2,0
+sesion05,ual.eda2.practica02,MainEj4EDALandLarge,329,0,24,0,71,0,15,0,3,0
+sesion05,ual.eda2.practica02,MainEj3EDALandLarge,264,0,14,0,53,0,9,0,2,0
+sesion05,ual.eda2.practica02,MainEj2EDALandLarge,264,0,14,0,53,0,9,0,2,0
+sesion05,ual.eda2.practica02,MainEj1EDALandLarge,267,0,14,0,53,0,9,0,2,0
+sesion05,ual.eda2.practica02,MainEj6EDALandLarge,379,0,26,0,79,0,15,0,2,0
+sesion05,ual.eda2.practica02,MainEj7EDALandLarge,322,0,22,0,68,0,14,0,3,0
+sesion05,ual.eda2.practica02,MainEj8EDALandLarge,462,0,38,0,97,0,22,0,3,0
+sesion05,ual.eda2.practica01,ParMasCercanoIterativoMejorado,77,0,6,0,12,0,6,0,3,0
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj3,155,0,14,0,25,0,12,0,5,0
+sesion05,ual.eda2.practica01,Poin,6,12,0,0,1,5,1,1,1,1
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj5,3,199,0,20,1,30,1,14,1,4
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj4,3,191,0,18,1,29,1,13,1,4
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj6,3,276,0,28,1,45,1,18,1,4
+sesion05,ual.eda2.practica01,ClosestPairDyVImproved,453,0,42,0,64,0,27,0,6,0
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj3.new Comparator() {...},11,0,0,0,2,0,2,0,2,0
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj3.new Comparator() {...},11,0,0,0,2,0,2,0,2,0
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj5.new Comparator() {...},0,11,0,0,0,2,0,2,0,2
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj5.new Comparator() {...},0,11,0,0,0,2,0,2,0,2
+sesion05,ual.eda2.practica01,ClosestPairDyVImproved.PointYComparator,9,0,0,0,2,0,2,0,2,0
+sesion05,ual.eda2.practica01,ParMasCercanoIterativo,78,0,8,0,13,0,7,0,3,0
+sesion05,ual.eda2.practica01,ClosestPairDyVImproved.PointXComparator,9,0,0,0,2,0,2,0,2,0
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj4.new Comparator() {...},0,11,0,0,0,2,0,2,0,2
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj4.new Comparator() {...},8,3,0,0,1,1,1,1,1,1
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj6.new Comparator() {...},0,11,0,0,0,2,0,2,0,2
+sesion05,ual.eda2.practica01,ClosestPairDyVImproved.Point,9,0,0,0,4,0,1,0,1,0
+sesion05,ual.eda2.practica01,ParMasCercanoDyVEj6.new Comparator() {...},0,11,0,0,0,2,0,2,0,2
+sesion05,ual.eda2.practica03,TSPBruteForce,13,332,6,36,4,62,7,19,1,4
+sesion05,ual.eda2.practica03,CaminosSimples,123,0,10,0,22,0,8,0,3,0
+sesion05,ual.eda2.practica03,MainTSPGreedyVertex,244,0,16,0,56,0,12,0,4,0
+sesion05,ual.eda2.practica03,Grafo,179,161,21,17,32,30,18,15,6,8
+sesion05,ual.eda2.practica03,MainTSPBruteForce,170,0,8,0,43,0,8,0,4,0
+sesion05,ual.eda2.practica03,TSPGreedyEdges,4,344,2,40,1,60,3,20,1,1
+sesion05,ual.eda2.practica03,Solucion,34,20,4,0,6,7,3,3,1,3
+sesion05,ual.eda2.practica03,Edge,0,42,0,4,0,11,0,7,0,5
+sesion05,ual.eda2.practica03,CaminoMasCorto,178,0,12,0,44,0,11,0,5,0
+sesion05,ual.eda2.practica03,CaminosSimplesMain,196,0,12,0,52,0,10,0,4,0
+sesion05,ual.eda2.practica03,TSPGreedyVertex,8,132,1,13,1,31,2,8,1,2
+sesion05,ual.eda2.practica03,NuevaRed,833,0,8,0,165,0,8,0,4,0
+sesion05,ual.eda2.practica03,MainTSPGreedyEdges,244,0,16,0,56,0,12,0,4,0
+sesion05,ual.eda2.practica03,TSPRecursive,14,307,7,31,4,56,8,17,1,5
+sesion05,ual.eda2.practica03,MainTSPIterative,246,0,14,0,56,0,11,0,4,0
+sesion05,ual.eda2.practica03,MainTSPRecursive,246,0,14,0,56,0,11,0,4,0
+sesion05,ual.eda2.practica03,Vertex,13,37,2,4,4,9,5,5,3,4
+sesion05,ual.eda2.practica03,Graph,136,0,10,0,28,0,15,0,10,0
+sesion05,ual.eda2.practica03,TSPIterative,415,0,56,0,72,0,33,0,5,0

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TSPRecursive.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">TSPRecursive.java</span></div><h1>TSPRecursive.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Clase que implementa el algoritmo del TSP (Viajante de Comercio) utilizando programación
+ * dinámica y memoización de forma recursiva. El algoritmo evalúa todos los posibles nodos de inicio
+ * y regresa el camino óptimo y el costo mínimo.
+ */
+<span class="nc" id="L11">public class TSPRecursive {</span>
+
+    private static int N; // Número de nodos
+    private static int FINISHED_STATE; // Estado final en el que todos los nodos han sido visitados
+
+    private static double[][] distance; // Matriz de distancias entre nodos
+<span class="fc" id="L17">    private static List&lt;Vertex&gt; caminoOptimo = new ArrayList&lt;&gt;(); // Lista que contendrá la ruta óptima</span>
+    private static List&lt;Vertex&gt; vertices; // Lista de vértices del grafo
+
+    /**
+     * Resuelve el problema del TSP para el grafo dado utilizando programación dinámica recursiva,
+     * comenzando desde el vértice especificado.
+     *
+     * @param grafo El grafo en el cual se ejecuta el algoritmo.
+     * @param startVertex El vértice de inicio para el recorrido.
+     * @return Un objeto Solucion que contiene la ruta óptima y su costo total.
+     */
+    public static Solucion recursiveTSP(Grafo grafo, Vertex startVertex) {
+        // Validar el grafo y el vértice inicial
+<span class="pc bpc" id="L30" title="1 of 8 branches missed.">        if (grafo == null || grafo.size() == 0 || startVertex == null || !grafo.getVertices().contains(startVertex)) {</span>
+<span class="fc" id="L31">            return null; // Grafo vacío o vértice inválido</span>
+        }
+
+        // Caso especial: un solo nodo en el grafo
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (grafo.size() == 1) {</span>
+<span class="fc" id="L36">            List&lt;Vertex&gt; ruta = new ArrayList&lt;&gt;(grafo.getVertices());</span>
+<span class="fc" id="L37">            ruta.add(ruta.get(0)); // Cerrar el circuito</span>
+<span class="fc" id="L38">            return new Solucion(ruta, 0.0);</span>
+        }
+
+<span class="fc" id="L41">        vertices = new ArrayList&lt;&gt;(grafo.getVertices());</span>
+<span class="fc" id="L42">        N = grafo.size();</span>
+
+<span class="fc" id="L44">        distance = convertir(grafo);</span>
+<span class="fc" id="L45">        FINISHED_STATE = (1 &lt;&lt; N) - 1;</span>
+
+        // Encontrar el índice del vértice de inicio
+<span class="fc" id="L48">        int sourceIndex = vertices.indexOf(startVertex);</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (sourceIndex == -1) {</span>
+<span class="nc" id="L50">            return null; // Vértice no encontrado en el grafo</span>
+        }
+
+        // Inicializar estructuras para memoización y reconstrucción de camino
+<span class="fc" id="L54">        Double[][] memo = new Double[N][1 &lt;&lt; N];</span>
+<span class="fc" id="L55">        Integer[][] prev = new Integer[N][1 &lt;&lt; N];</span>
+
+        // Calcular el camino óptimo desde el vértice de inicio especificado
+<span class="fc" id="L58">        double caminoOptimalCost = tsp(sourceIndex, 1 &lt;&lt; sourceIndex, sourceIndex, memo, prev);</span>
+        
+        // Reconstruir el camino óptimo
+<span class="fc" id="L61">        caminoOptimo.clear();</span>
+<span class="fc" id="L62">        reconstruirCamino(prev, sourceIndex);</span>
+        
+        // Devolver la solución con el camino y su costo
+<span class="fc" id="L65">        return new Solucion(new ArrayList&lt;&gt;(caminoOptimo), caminoOptimalCost);</span>
+    }
+
+    /**
+     * Método recursivo que calcula el costo mínimo para completar el circuito
+     * desde el nodo actual usando programación dinámica y memoización.
+     *
+     * @param i     El índice del nodo actual.
+     * @param state Bitmask que indica los nodos visitados.
+     * @param start Índice del nodo de inicio.
+     * @param memo  Tabla para memoización.
+     * @param prev  Tabla para la reconstrucción del camino óptimo.
+     * @return Costo mínimo acumulado desde el nodo actual hasta regresar al nodo de inicio.
+     */
+    private static double tsp(int i, int state, int start, Double[][] memo, Integer[][] prev) {
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (state == FINISHED_STATE) {</span>
+<span class="fc" id="L81">            return distance[i][start]; // Caso base: retornar al nodo inicial.</span>
+        }
+
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (memo[i][state] != null) {</span>
+<span class="nc" id="L85">            return memo[i][state];</span>
+        }
+
+<span class="fc" id="L88">        double minCost = Double.POSITIVE_INFINITY;</span>
+<span class="fc" id="L89">        int index = -1;</span>
+
+        // Iterar por todos los nodos no visitados.
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for (int next = 0; next &lt; N; next++) {</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">            if ((state &amp; (1 &lt;&lt; next)) != 0) continue; // Saltar si el nodo ya fue visitado.</span>
+            
+<span class="fc" id="L95">            int nextState = state | (1 &lt;&lt; next);</span>
+<span class="fc" id="L96">            double newCost = distance[i][next] + tsp(next, nextState, start, memo, prev);</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">            if (newCost &lt; minCost) {</span>
+<span class="fc" id="L98">                minCost = newCost;</span>
+<span class="fc" id="L99">                index = next;</span>
+            }
+        }
+
+<span class="fc" id="L103">        prev[i][state] = index; // Almacenar el siguiente nodo óptimo para reconstruir el camino.</span>
+<span class="fc" id="L104">        return memo[i][state] = minCost;</span>
+    }
+
+    /**
+     * Reconstruye el camino óptimo a partir de la tabla 'prev' luego de calcular los costos.
+     *
+     * @param prev   Tabla con la información del siguiente nodo para cada subproblema.
+     * @param source Índice del nodo de inicio.
+     */
+    private static void reconstruirCamino(Integer[][] prev, int source) {
+<span class="fc" id="L114">        int state = 1 &lt;&lt; source; // Estado inicial</span>
+<span class="fc" id="L115">        int index = source;</span>
+
+        // Limpiar la ruta y agregar el nodo de inicio.
+<span class="fc" id="L118">        caminoOptimo.clear();</span>
+<span class="fc" id="L119">        caminoOptimo.add(vertices.get(index));</span>
+
+        // Reconstruir el camino usando la tabla 'prev'
+        while (true) {
+<span class="fc" id="L123">            Integer nextIndex = prev[index][state];</span>
+<span class="pc bpc" id="L124" title="1 of 4 branches missed.">            if (nextIndex == null || nextIndex == -1) {</span>
+<span class="nc" id="L125">                break; // Terminar si no hay siguiente nodo válido.</span>
+            }
+
+<span class="fc" id="L128">            caminoOptimo.add(vertices.get(nextIndex));</span>
+<span class="fc" id="L129">            state |= (1 &lt;&lt; nextIndex); // Actualizar el estado de visitas.</span>
+<span class="fc" id="L130">            index = nextIndex; // Pasar al siguiente nodo.</span>
+<span class="fc" id="L131">        }</span>
+
+        // Asegurar que el camino cierra el circuito regresando al nodo de inicio.
+<span class="pc bpc" id="L134" title="2 of 4 branches missed.">        if (caminoOptimo.size() == 1 || !caminoOptimo.get(caminoOptimo.size() - 1).equals(vertices.get(source))) {</span>
+<span class="fc" id="L135">            caminoOptimo.add(vertices.get(source));</span>
+        }
+<span class="fc" id="L137">    }</span>
+
+    /**
+     * Convierte el grafo en una matriz de distancias.
+     *
+     * @param grafo El grafo a convertir.
+     * @return Una matriz de distancias donde cada elemento representa el peso entre dos nodos.
+     */
+    private static double[][] convertir(Grafo grafo) {
+<span class="fc" id="L146">        int n = grafo.size();</span>
+<span class="fc" id="L147">        double[][] matriz = new double[n][n];</span>
+
+<span class="fc bfc" id="L149" title="All 2 branches covered.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">            for (int j = 0; j &lt; n; j++) {</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">                if (i == j) {</span>
+<span class="fc" id="L152">                    matriz[i][j] = 0; // La distancia de un nodo a sí mismo es 0.</span>
+                } else {
+<span class="fc" id="L154">                    Vertex v1 = vertices.get(i);</span>
+<span class="fc" id="L155">                    Vertex v2 = vertices.get(j);</span>
+<span class="pc bpc" id="L156" title="1 of 2 branches missed.">                    matriz[i][j] = grafo.adyacentes(v1, v2) ? grafo.peso(v1, v2) : Double.POSITIVE_INFINITY;</span>
+                }
+            }
+        }
+
+<span class="fc" id="L161">        return matriz;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

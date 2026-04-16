@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NuevaRed.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">NuevaRed.java</span></div><h1>NuevaRed.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+<span class="nc" id="L11">public class NuevaRed {</span>
+	public static void main(String[] args) {
+		 // Definir el directorio de entrada para el archivo del grafo
+<span class="nc" id="L14">        String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+                &quot;src&quot; + File.separator +
+                &quot;main&quot; + File.separator +
+                &quot;java&quot; + File.separator +
+                &quot;ual&quot; + File.separator +
+                &quot;eda2&quot; + File.separator +
+                &quot;practica03&quot; + File.separator;
+
+        // Archivo de entrada del grafo
+<span class="nc" id="L23">        String archivoGrafo = directorioEntrada + &quot;graphEDAlandTSP01.txt&quot;;</span>
+
+        try {
+            // Cargar el grafo desde el archivo
+<span class="nc" id="L27">            Grafo edaland = readGraphFromFile(archivoGrafo);</span>
+<span class="nc" id="L28">            System.out.println(&quot;Grafo cargado exitosamente.&quot;);</span>
+            
+<span class="nc" id="L30">            System.out.println(&quot;/*/*/*/*/*/*/*CASO BASE*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L31">            List&lt;Vertex&gt; lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L32">            Vertex startIndex = lista.get(1);</span>
+<span class="nc" id="L33">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L34">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L35">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L36">            long timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L37">            Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+<span class="nc" id="L38">            long timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L39">            long time = timeFinal - timeInicio;</span>
+            
+<span class="nc" id="L41">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L42">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L43">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            //Añadir vértices y aristas al grafo:
+            // Caso 1
+<span class="nc" id="L47">            edaland.addVertex(new Vertex(&quot;Malaga&quot;));</span>
+<span class="nc" id="L48">            edaland.addEdge(new Vertex(&quot;Almeria&quot;), new Vertex(&quot;Malaga&quot;), 202);</span>
+<span class="nc" id="L49">            edaland.addEdge(new Vertex(&quot;Granada&quot;), new Vertex(&quot;Malaga&quot;), 129);</span>
+<span class="nc" id="L50">            edaland.addEdge(new Vertex(&quot;Malaga&quot;), new Vertex(&quot;Cadiz&quot;), 233);</span>
+            
+<span class="nc" id="L52">            System.out.println(&quot;/*/*/*/*/*/*/*+ MALAGA*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L53">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L54">            startIndex = lista.get(1);</span>
+<span class="nc" id="L55">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L56">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L57">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L58">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L59">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L61">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L62">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L63">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L64">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L65">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            
+            
+            // Caso 2
+<span class="nc" id="L70">            edaland.addVertex(new Vertex(&quot;Salamanca&quot;));</span>
+<span class="nc" id="L71">            edaland.addEdge(new Vertex(&quot;Salamanca&quot;), new Vertex(&quot;Caceres&quot;), 201);</span>
+<span class="nc" id="L72">            edaland.addEdge(new Vertex(&quot;Salamanca&quot;), new Vertex(&quot;Valladolid&quot;), 121);</span>
+<span class="nc" id="L73">            edaland.addEdge(new Vertex(&quot;Salamanca&quot;), new Vertex(&quot;Vigo&quot;), 415);</span>
+
+<span class="nc" id="L75">            System.out.println(&quot;/*/*/*/*/*/*/*+ SALAMANCA*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L76">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L77">            startIndex = lista.get(1);</span>
+<span class="nc" id="L78">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L79">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L80">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L81">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L82">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L84">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L85">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L86">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L87">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L88">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            // Caso 3
+<span class="nc" id="L91">            edaland.addVertex(new Vertex(&quot;Palencia&quot;));</span>
+<span class="nc" id="L92">            edaland.addEdge(new Vertex(&quot;Valladolid&quot;), new Vertex(&quot;Palencia&quot;), 58);</span>
+<span class="nc" id="L93">            edaland.addEdge(new Vertex(&quot;Palencia&quot;), new Vertex(&quot;Bilbao&quot;), 244);</span>
+<span class="nc" id="L94">            edaland.addEdge(new Vertex(&quot;Palencia&quot;), new Vertex(&quot;Oviedo&quot;), 253);</span>
+
+<span class="nc" id="L96">            System.out.println(&quot;/*/*/*/*/*/*/*+ PALENCIA*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L97">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L98">            startIndex = lista.get(1);</span>
+<span class="nc" id="L99">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L100">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L101">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L102">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L103">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L105">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L106">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L107">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L108">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L109">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            // Caso 4
+<span class="nc" id="L112">            edaland.addVertex(new Vertex(&quot;Soria&quot;));</span>
+<span class="nc" id="L113">            edaland.addEdge(new Vertex(&quot;Madrid&quot;), new Vertex(&quot;Soria&quot;), 236);</span>
+<span class="nc" id="L114">            edaland.addEdge(new Vertex(&quot;Soria&quot;), new Vertex(&quot;Zaragoza&quot;), 159);</span>
+<span class="nc" id="L115">            edaland.addEdge(new Vertex(&quot;Soria&quot;), new Vertex(&quot;Bilbao&quot;), 229);</span>
+            
+<span class="nc" id="L117">            System.out.println(&quot;/*/*/*/*/*/*/*+ SORIA*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L118">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L119">            startIndex = lista.get(1);</span>
+<span class="nc" id="L120">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L121">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L122">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L123">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L124">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L126">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L127">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L128">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L129">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L130">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            // Caso 5
+<span class="nc" id="L133">            edaland.addVertex(new Vertex(&quot;Teruel&quot;));</span>
+<span class="nc" id="L134">            edaland.addEdge(new Vertex(&quot;Madrid&quot;), new Vertex(&quot;Teruel&quot;), 310);</span>
+<span class="nc" id="L135">            edaland.addEdge(new Vertex(&quot;Teruel&quot;), new Vertex(&quot;Zaragoza&quot;), 171);</span>
+<span class="nc" id="L136">            edaland.addEdge(new Vertex(&quot;Teruel&quot;), new Vertex(&quot;Valencia&quot;), 144);</span>
+
+<span class="nc" id="L138">            System.out.println(&quot;/*/*/*/*/*/*/*+ TERUEL*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L139">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L140">            startIndex = lista.get(1);</span>
+<span class="nc" id="L141">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L142">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L143">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L144">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L145">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L147">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L148">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L149">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L150">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L151">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            // Caso 6
+<span class="nc" id="L154">            edaland.addVertex(new Vertex(&quot;Cordoba&quot;));</span>
+<span class="nc" id="L155">            edaland.addEdge(new Vertex(&quot;Sevilla&quot;), new Vertex(&quot;Cordoba&quot;), 145);</span>
+<span class="nc" id="L156">            edaland.addEdge(new Vertex(&quot;Jaen&quot;), new Vertex(&quot;Cordoba&quot;), 108);</span>
+<span class="nc" id="L157">            edaland.addEdge(new Vertex(&quot;Huelva&quot;), new Vertex(&quot;Cordoba&quot;), 243);</span>
+<span class="nc" id="L158">            edaland.addEdge(new Vertex(&quot;Cordoba&quot;), new Vertex(&quot;Badajoz&quot;), 264);</span>
+            
+<span class="nc" id="L160">            System.out.println(&quot;/*/*/*/*/*/*/*+ CORDOBA*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L161">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L162">            startIndex = lista.get(1);</span>
+<span class="nc" id="L163">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L164">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L165">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L166">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L167">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L169">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L170">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L171">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L172">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L173">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+            // Caso 7
+<span class="nc" id="L176">            edaland.addVertex(new Vertex(&quot;Lugo&quot;));</span>
+<span class="nc" id="L177">            edaland.addEdge(new Vertex(&quot;Lugo&quot;), new Vertex(&quot;Corunya&quot;), 101);</span>
+<span class="nc" id="L178">            edaland.addEdge(new Vertex(&quot;Lugo&quot;), new Vertex(&quot;Valladolid&quot;), 353);</span>
+<span class="nc" id="L179">            edaland.addEdge(new Vertex(&quot;Lugo&quot;), new Vertex(&quot;Oviedo&quot;), 252);</span>
+            
+<span class="nc" id="L181">            System.out.println(&quot;/*/*/*/*/*/*/*+ LUGO (FINAL)*\\*\\*\\*\\*\\&quot;);</span>
+<span class="nc" id="L182">            lista = (List&lt;Vertex&gt;) edaland.getVertices();</span>
+<span class="nc" id="L183">            startIndex = lista.get(1);</span>
+<span class="nc" id="L184">            System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L185">            System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + edaland.getNumAristas());</span>
+<span class="nc" id="L186">            System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());</span>
+<span class="nc" id="L187">            timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L188">            tsp = TSPIterative.tspIterative(edaland, startIndex);</span>
+            //Solucion tsp = TSPIterative.tspIterative(edaland, startIndex);
+<span class="nc" id="L190">            timeFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L191">            time = timeFinal - timeInicio;</span>
+<span class="nc" id="L192">        	System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());</span>
+<span class="nc" id="L193">        	System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());</span>
+<span class="nc" id="L194">            System.out.println(&quot;Tiempo de ejecución del algoritmo: &quot; + time + &quot;ms&quot;);</span>
+            
+           
+<span class="nc" id="L197">        } catch (IOException e) {</span>
+<span class="nc" id="L198">            System.err.println(&quot;Error leyendo el archivo del grafo: &quot; + e.getMessage());</span>
+<span class="nc" id="L199">        }</span>
+<span class="nc" id="L200">    }</span>
+
+    /**
+     * Lee un grafo desde un archivo de texto.
+     * 
+     * @param filePath Ruta del archivo de texto
+     * @return Un objeto Graph construido a partir de los datos del archivo
+     * @throws IOException Si ocurre un error de entrada/salida
+     */
+    public static Grafo readGraphFromFile(String filePath) throws IOException {
+<span class="nc" id="L210">        Grafo graph = new Grafo();</span>
+<span class="nc" id="L211">        Map&lt;String, Vertex&gt; verticesMap = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L213">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+<span class="nc bnc" id="L215" title="All 2 branches missed.">            while ((line = reader.readLine()) != null) {</span>
+<span class="nc" id="L216">                line = line.trim();</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">                if (line.isEmpty()) continue;</span>
+
+<span class="nc" id="L219">                String[] parts = line.split(&quot;\\s+&quot;);</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">                if (parts.length == 3) {</span>
+<span class="nc" id="L221">                    String sourceId = parts[0];</span>
+<span class="nc" id="L222">                    String destId = parts[1];</span>
+<span class="nc" id="L223">                    double distance = Double.parseDouble(parts[2]);</span>
+
+                    // Obtener o crear vértices
+<span class="nc" id="L226">                    Vertex source = getOrCreateVertex(verticesMap, graph, sourceId);</span>
+<span class="nc" id="L227">                    Vertex dest = getOrCreateVertex(verticesMap, graph, destId);</span>
+
+                    // Añadir las aristas al grafo (suponiendo grafo no dirigido)
+<span class="nc" id="L230">                    graph.addEdge(source, dest, distance);</span>
+<span class="nc" id="L231">                    graph.addEdge(dest, source, distance); // Elimina esta línea si el grafo es dirigido</span>
+                }
+<span class="nc" id="L233">            }</span>
+        }
+
+<span class="nc" id="L236">        return graph;</span>
+    }
+
+    /**
+     * Método auxiliar para obtener un vértice existente o crear uno nuevo si es necesario.
+     * 
+     * @param verticesMap Mapa de identificadores de vértices a objetos Vertex
+     * @param graph Grafo donde se añaden los vértices
+     * @param id Identificador del vértice
+     * @return Un objeto Vertex correspondiente al identificador
+     */
+    private static Vertex getOrCreateVertex(Map&lt;String, Vertex&gt; verticesMap, Grafo graph, String id) {
+<span class="nc" id="L248">        Vertex vertex = verticesMap.get(id);</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        if (vertex == null) {</span>
+<span class="nc" id="L250">            vertex = new Vertex(id);</span>
+<span class="nc" id="L251">            verticesMap.put(id, vertex);</span>
+<span class="nc" id="L252">            graph.addVertex(vertex);</span>
+        }
+<span class="nc" id="L254">        return vertex;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

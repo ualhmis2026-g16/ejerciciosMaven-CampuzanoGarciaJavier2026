@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Graph.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">Graph.java</span></div><h1>Graph.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.util.*;
+
+public class Graph {
+    // Map to store vertices and their adjacent vertices with weights
+    private Map&lt;Vertex, Map&lt;Vertex, Double&gt;&gt; adjacencyMap;
+    
+    /**
+     * Constructor por defecto
+     */
+<span class="nc" id="L12">    public Graph() {</span>
+<span class="nc" id="L13">        this.adjacencyMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L14">    }</span>
+    
+    /**
+     * Metodo que anade un vertice al grafo
+     * @param v
+     */
+    public void addVertex(Vertex v) {
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (!adjacencyMap.containsKey(v)) {</span>
+<span class="nc" id="L22">            adjacencyMap.put(v, new HashMap&lt;&gt;());</span>
+        }
+<span class="nc" id="L24">    }</span>
+    
+    /**
+     * Metodo que anade una arista entre dos vertices
+     * @param source
+     * @param destination
+     * @param weight
+     */
+    public void addEdge(Vertex source, Vertex destination, double weight) {
+        // Add vertices if they don't exist
+<span class="nc" id="L34">        addVertex(source);</span>
+<span class="nc" id="L35">        addVertex(destination);</span>
+        
+        // Add the edge with weight
+<span class="nc" id="L38">        adjacencyMap.get(source).put(destination, weight);</span>
+<span class="nc" id="L39">    }</span>
+    
+    /**
+     * Metodo que devuelve todos los vertices del grafo
+     * @return Collection&lt;Vertex&gt;
+     */
+    public Set&lt;Vertex&gt; getVertices() {
+<span class="nc" id="L46">        return adjacencyMap.keySet();</span>
+    }
+    
+    /**
+     * Metodo que verifica si dos vertices son adyacentes
+     * @param Vertex v1
+     * @param Vertex v2
+     * @return boolean adyacentes
+     */
+    public boolean adyacentes(Vertex v1, Vertex v2) {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (!adjacencyMap.containsKey(v1)) {</span>
+<span class="nc" id="L57">            return false;</span>
+        }
+<span class="nc" id="L59">        return adjacencyMap.get(v1).containsKey(v2);</span>
+    }
+    
+    /**
+     * Metodo que devuelve el peso entre dos vertices
+     * @param Vertex v1
+     * @param Vertex v2
+     * @return double peso
+     */
+    public double peso(Vertex v1, Vertex v2) {
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (!adyacentes(v1, v2)) {</span>
+<span class="nc" id="L70">            return Double.POSITIVE_INFINITY;</span>
+        }
+<span class="nc" id="L72">        return adjacencyMap.get(v1).get(v2);</span>
+    }
+    
+    /**
+     * Metodo que devuelve el peso entre dos vertices
+     * @param Vertex v1
+     * @param Vertex v2
+     * @return double
+     */
+    public double weight(Vertex v1, Vertex v2) {
+<span class="nc" id="L82">        return peso(v1, v2);</span>
+    }
+    
+    /**
+     * Metodo para imprimir el grafo.
+     */
+    public void printGraph() {
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        for (Vertex v : adjacencyMap.keySet()) {</span>
+<span class="nc" id="L90">            System.out.print(&quot;Vertex &quot; + v + &quot; connects to: &quot;);</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">            for (Map.Entry&lt;Vertex, Double&gt; neighbor : adjacencyMap.get(v).entrySet()) {</span>
+<span class="nc" id="L92">                System.out.print(neighbor.getKey() + &quot; (weight: &quot; + neighbor.getValue() + &quot;) &quot;);</span>
+<span class="nc" id="L93">            }</span>
+<span class="nc" id="L94">            System.out.println();</span>
+<span class="nc" id="L95">        }</span>
+<span class="nc" id="L96">    }</span>
+
+	public int size() {
+<span class="nc" id="L99">		return adjacencyMap.size();</span>
+	}
+	
+	public Map&lt;Vertex, Double&gt; get(Vertex v) {
+<span class="nc" id="L103">		return adjacencyMap.get(v);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

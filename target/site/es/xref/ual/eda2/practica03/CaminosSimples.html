@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>CaminosSimples xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../apidocs/ual/eda2/practica03/CaminosSimples.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> ual.eda2.practica03;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.ArrayList;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.HashMap;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> * Clase que proporciona métodos para buscar caminos simples (Hamiltonianos)</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * en un grafo, es decir, caminos que visitan cada vértice al menos una vez y</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> * regresan al vértice de origen.</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a name="CaminosSimples" href="../../../ual/eda2/practica03/CaminosSimples.html#CaminosSimples">CaminosSimples</a> {
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment">     * Busca todos los caminos simples (Hamiltonianos) en el grafo que parten y</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment">     * regresan al vértice de origen especificado.</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment">     * @param grafo  El grafo en el cual buscar los caminos.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     * @param origen El vértice de origen y destino para los caminos.</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">     * @return Un mapa que asocia cada camino (lista de vértices) a su peso total.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> Map&lt;ArrayList&lt;Vertex&gt;, Double&gt; buscarCaminosSimples(<a name="Graph" href="../../../ual/eda2/practica03/Graph.html#Graph">Graph</a> grafo, <a name="Vertex" href="../../../ual/eda2/practica03/Vertex.html#Vertex">Vertex</a> origen) {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          Map&lt;ArrayList&lt;Vertex&gt;, Double&gt; conjuntoCaminos = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          ArrayList&lt;Vertex&gt; camino = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          ArrayList&lt;Vertex&gt; visitados = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          caminosSimples(grafo, origen, camino, visitados, conjuntoCaminos, origen, 0.0);
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          <strong class="jxr_keyword">return</strong> conjuntoCaminos;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      }
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">     * Método recursivo para explorar caminos simples (Hamiltonianos) en el grafo.</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     * @param grafo         El grafo en el cual se busca el camino.</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     * @param actual        El vértice actual en la exploración.</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     * @param camino        Lista que representa el camino recorrido hasta el momento.</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     * @param visitados     Lista de vértices ya visitados para asegurar la simplicidad.</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     * @param conjuntoCaminos Mapa que almacena los caminos encontrados y su peso total.</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">     * @param origen        El vértice de origen, al cual se debe regresar para cerrar el ciclo.</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * @param pesoActual    El peso acumulado del camino actual.</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> caminosSimples(<a name="Graph" href="../../../ual/eda2/practica03/Graph.html#Graph">Graph</a> grafo, <a name="Vertex" href="../../../ual/eda2/practica03/Vertex.html#Vertex">Vertex</a> actual, ArrayList&lt;Vertex&gt; camino,
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>                                         ArrayList&lt;Vertex&gt; visitados, Map&lt;ArrayList&lt;Vertex&gt;, Double&gt; conjuntoCaminos,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>                                         <a name="Vertex" href="../../../ual/eda2/practica03/Vertex.html#Vertex">Vertex</a> origen, <strong class="jxr_keyword">double</strong> pesoActual) {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          visitados.add(actual);
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          camino.add(actual);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <em class="jxr_comment">// Caso base: Si se han visitado todos los vértices y hay un arco que regresa al origen, se encontró un ciclo.</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">if</strong> (visitados.size() == grafo.getVertices().size() &amp;&amp; grafo.adyacentes(actual, origen)) {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              camino.add(origen); <em class="jxr_comment">// Cerrar el ciclo agregando el origen</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              <strong class="jxr_keyword">double</strong> pesoFinal = pesoActual + grafo.peso(actual, origen); <em class="jxr_comment">// Sumar el peso del último tramo</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              conjuntoCaminos.put(<strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(camino), pesoFinal);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>              camino.remove(camino.size() - 1); <em class="jxr_comment">// Quitar la última adición para seguir explorando otros caminos</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              <em class="jxr_comment">// Recorrer los vecinos del grafo que no han sido visitados</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              <strong class="jxr_keyword">for</strong> (<a name="Vertex" href="../../../ual/eda2/practica03/Vertex.html#Vertex">Vertex</a> vecino : grafo.getVertices()) {
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                  <strong class="jxr_keyword">if</strong> (!visitados.contains(vecino) &amp;&amp; grafo.adyacentes(actual, vecino)) {
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                      <strong class="jxr_keyword">double</strong> pesoArista = grafo.peso(actual, vecino);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                      caminosSimples(grafo, vecino, camino, visitados, conjuntoCaminos, origen, pesoActual + pesoArista);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                  }
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>              }
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          }
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <em class="jxr_comment">// Retroceder (backtracking)</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          camino.remove(camino.size() - 1);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          visitados.remove(visitados.size() - 1);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      }
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  }
+</pre>
+<hr/>
+<div id="footer">© 2026</div>
+</body>
+</html>

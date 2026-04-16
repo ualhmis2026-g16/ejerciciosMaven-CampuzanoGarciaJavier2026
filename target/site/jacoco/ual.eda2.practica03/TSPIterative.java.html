@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TSPIterative.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">TSPIterative.java</span></div><h1>TSPIterative.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+<span class="nc" id="L7">public class TSPIterative {</span>
+
+	// TSP ITERATIVE
+		/**
+		 * Resuelve el problema del viajero (TSP) utilizando un enfoque iterativo 
+		 * con programación dinámica.
+		 * 
+		 * @param g El Grafo completo representado como una matriz de adyacencia.
+		 * @param startVertex El vértice de inicio desde el cual se inicia la búsqueda.
+		 * @return La solución óptima encontrada para el TSP.
+		 */
+		public static Solucion tspIterative(Grafo g, Vertex startVertex) {
+<span class="nc" id="L19">			Solucion sol = null;</span>
+			
+			//Contempla el caso de 1 solo vértice para devolver una lista con ese elemento.
+<span class="nc bnc" id="L22" title="All 2 branches missed.">			if (g.getVertices().size() == 1) {</span>
+<span class="nc" id="L23">			    Vertex v = g.getVertices().iterator().next();</span>
+<span class="nc" id="L24">			    List&lt;Vertex&gt; singlePath = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L25">			    singlePath.add(v);</span>
+<span class="nc" id="L26">			    singlePath.add(v);</span>
+<span class="nc" id="L27">			    return new Solucion(singlePath, 0.0);</span>
+			}
+			
+			// Inicializa el coste mínimo de la ruta
+<span class="nc" id="L31">			double minTourCost = Double.POSITIVE_INFINITY;</span>
+			
+			// Lista que almacenará el recorrido final
+<span class="nc" id="L34">			List&lt;Integer&gt; tour = new ArrayList&lt;&gt;();</span>
+			
+			// Obtiene el índice del nodo inicial en el Grafo
+<span class="nc" id="L37">			int start = g.getVertexIndex(startVertex);</span>
+
+			// Convierte el Grafo a una matriz de distancias
+<span class="nc" id="L40">			double[][] distance = g.mapaAMatriz();</span>
+			
+			// Número de nodos en el Grafo
+<span class="nc" id="L43">			int N = distance.length;</span>
+			
+			// Estado final, cuando todos los nodos han sido visitados
+<span class="nc" id="L46">			final int END_STATE = (1 &lt;&lt; N) - 1;</span>
+			
+			// Tabla para memorización de subproblemas
+<span class="nc" id="L49">			Double[][] memo = new Double[N][1 &lt;&lt; N];</span>
+
+			// Inicializa la tabla memo con las distancias directas desde el nodo inicial
+<span class="nc bnc" id="L52" title="All 2 branches missed.">			for (int end = 0; end &lt; N; end++) {</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">				if (end == start) continue;</span>
+<span class="nc" id="L54">				memo[end][(1 &lt;&lt; start) | (1 &lt;&lt; end)] = distance[start][end];</span>
+			}
+
+			// Iteración sobre todos los subconjuntos de nodos de tamaño r, desde 3 hasta N
+<span class="nc bnc" id="L58" title="All 2 branches missed.">			for (int r = 3; r &lt;= N; r++) {</span>
+				// Itera sobre todas las combinaciones de tamaño r de nodos
+<span class="nc bnc" id="L60" title="All 2 branches missed.">				for (int subset : combinations(r, N)) {</span>
+					// Asegúrate de que el nodo inicial esté en el subconjunto
+<span class="nc bnc" id="L62" title="All 2 branches missed.">					if (notIn(start, subset)) continue;</span>
+
+					// Itera sobre todos los nodos posibles como siguiente nodo
+<span class="nc bnc" id="L65" title="All 2 branches missed.">					for (int next = 0; next &lt; N; next++) {</span>
+						// Si el nodo es el nodo inicial o no está en el subconjunto, saltamos
+<span class="nc bnc" id="L67" title="All 4 branches missed.">						if (next == start || notIn(next, subset)) continue;</span>
+
+						// Calcula el nuevo subconjunto sin el nodo 'next'
+						// usa el operador XOR (^) para &quot;remover&quot; el bit correspondiente al nodo next dentro del subconjunto (subset).
+<span class="nc" id="L71">						int subsetWithoutNext = subset ^ (1 &lt;&lt; next);</span>
+						
+						// Variable para almacenar el coste mínimo encontrado
+<span class="nc" id="L74">						double minDist = Double.POSITIVE_INFINITY;</span>
+						
+						// Busca el nodo anterior en el subconjunto que minimiza la distancia
+<span class="nc bnc" id="L77" title="All 2 branches missed.">						for (int end = 0; end &lt; N; end++) {</span>
+							// Si el nodo 'end' es inválido, lo saltamos
+<span class="nc bnc" id="L79" title="All 6 branches missed.">							if (end == start || end == next || notIn(end, subset)) continue;</span>
+
+							// Calcula la distancia entre el nodo 'end' y 'next'
+<span class="nc" id="L82">							double newDistance = memo[end][subsetWithoutNext] + distance[end][next];</span>
+							// Actualiza el coste mínimo si se encuentra una mejor ruta
+<span class="nc bnc" id="L84" title="All 2 branches missed.">							if (newDistance &lt; minDist) {</span>
+<span class="nc" id="L85">								minDist = newDistance;</span>
+							}
+						}
+
+						// Guarda el coste mínimo en la tabla de memoización
+<span class="nc" id="L90">						memo[next][subset] = minDist;</span>
+					}
+<span class="nc" id="L92">				}</span>
+			}
+
+			// Conecta la ruta de vuelta al nodo inicial y minimiza el coste
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			for (int i = 0; i &lt; N; i++) {</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">				if (i == start) continue;</span>
+<span class="nc" id="L98">				double tourCost = memo[i][END_STATE] + distance[i][start];</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">				if (tourCost &lt; minTourCost) {</span>
+<span class="nc" id="L100">					minTourCost = tourCost;</span>
+				}
+			}
+
+			// Reconstrucción del recorrido mínimo desde la tabla de memoización
+<span class="nc" id="L105">			int lastIndex = start;</span>
+<span class="nc" id="L106">			int state = END_STATE;</span>
+<span class="nc" id="L107">			tour.add(start);</span>
+
+			// Se reconstruye el recorrido nodo por nodo
+<span class="nc bnc" id="L110" title="All 2 branches missed.">			for (int i = 1; i &lt; N; i++) {</span>
+<span class="nc" id="L111">				int index = -1;</span>
+				// Busca el siguiente nodo que minimiza el coste
+<span class="nc bnc" id="L113" title="All 2 branches missed.">				for (int j = 0; j &lt; N; j++) {</span>
+<span class="nc bnc" id="L114" title="All 4 branches missed.">					if (j == start || notIn(j, state)) continue;</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">					if (index == -1) index = j;</span>
+<span class="nc" id="L116">					double prevDist = memo[index][state] + distance[index][lastIndex];</span>
+<span class="nc" id="L117">					double newDist  = memo[j][state] + distance[j][lastIndex];</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">					if (newDist &lt; prevDist) {</span>
+<span class="nc" id="L119">						index = j;</span>
+					}
+				}
+
+				// Agrega el siguiente nodo al recorrido
+<span class="nc" id="L124">				tour.add(index);</span>
+				// Actualiza el estado al quitar el nodo de la lista de visitados
+<span class="nc" id="L126">				state = state ^ (1 &lt;&lt; index);</span>
+				// Actualiza el índice del último nodo visitado
+<span class="nc" id="L128">				lastIndex = index;</span>
+			}
+
+			// Agrega el nodo inicial al final del recorrido
+<span class="nc" id="L132">			tour.add(start);</span>
+
+			// Invierte el recorrido para obtenerlo en el orden correcto (de inicio a fin)
+			//Collections.reverse(tour);
+			
+			// Convierte los índices de los nodos a vértices del Grafo
+<span class="nc" id="L138">			List&lt;Vertex&gt; vertexes = g.obtenerListaVertices(tour.toArray(new Integer[tour.size()]));</span>
+			
+<span class="nc" id="L140">			double tourCost = 0;</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			for(int i=0; i&lt;vertexes.size()-1; i++) {</span>
+<span class="nc" id="L142">				tourCost+= g.peso(vertexes.get(i), vertexes.get(i+1));</span>
+			}
+			// Crea la solución con el recorrido y el coste mínimo
+<span class="nc" id="L145">			sol = new Solucion(vertexes, tourCost);</span>
+<span class="nc" id="L146">			return sol;</span>
+		}
+		
+
+		/**
+		 * Verifica si un elemento no está en un subconjunto representado por un entero.
+		 * 
+		 * @param elem El elemento a verificar.
+		 * @param subset El subconjunto representado como un entero.
+		 * @return true si el elemento no está en el subconjunto, false en caso contrario.
+		 */
+		private static boolean notIn(int elem, int subset) {
+			// Verifica si el elemento 'elem' no está en el subconjunto (usando bits)
+<span class="nc bnc" id="L159" title="All 2 branches missed.">			return ((1 &lt;&lt; elem) &amp; subset) == 0;</span>
+		}
+
+		/**
+		 * Genera todas las combinaciones de tamaño r de un conjunto de n elementos.
+		 * 
+		 * @param r El tamaño de las combinaciones a generar.
+		 * @param n El número total de elementos en el conjunto.
+		 * @return Una lista de enteros representando las combinaciones generadas.
+		 */
+		private static List&lt;Integer&gt; combinations(int r, int n) {
+<span class="nc" id="L170">			List&lt;Integer&gt; subsets = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L171">			combinations(0, 0, r, n, subsets);</span>
+<span class="nc" id="L172">			return subsets;</span>
+		}
+
+		/**
+		 * Genera combinaciones de tamaño r a partir de un conjunto de n elementos.
+		 * 
+		 * @param set El conjunto actual representado como un entero.
+		 * @param at El índice actual en el conjunto.
+		 * @param r El tamaño de las combinaciones a generar.
+		 * @param n El número total de elementos en el conjunto.
+		 * @param subsets La lista donde se almacenan las combinaciones generadas.
+		 */
+		private static void combinations(int set, int at, int r, int n, List&lt;Integer&gt; subsets) {
+			// Verifica si hay suficientes elementos restantes para elegir
+<span class="nc" id="L186">			int elementsLeftToPick = n - at;</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">			if (elementsLeftToPick &lt; r) return;</span>
+
+			// Si se han seleccionado 'r' elementos, guarda el subconjunto
+<span class="nc bnc" id="L190" title="All 2 branches missed.">			if (r == 0) {</span>
+<span class="nc" id="L191">				subsets.add(set);</span>
+			} else {
+<span class="nc bnc" id="L193" title="All 2 branches missed.">				for (int i = at; i &lt; n; i++) {</span>
+					// Incluye el elemento 'i' en el subconjunto
+<span class="nc" id="L195">					set |= 1 &lt;&lt; i;</span>
+					// Se llama recursivamente para incluir más elementos
+<span class="nc" id="L197">					combinations(set, i + 1, r - 1, n, subsets);</span>
+					// Se deshace la inclusión para explorar el caso sin él
+<span class="nc" id="L199">					set &amp;= ~(1 &lt;&lt; i);</span>
+				}
+			}
+<span class="nc" id="L202">		}</span>
+		
+		
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

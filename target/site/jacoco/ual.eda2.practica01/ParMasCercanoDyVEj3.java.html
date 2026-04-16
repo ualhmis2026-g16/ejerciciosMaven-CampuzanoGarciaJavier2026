@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParMasCercanoDyVEj3.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica01</a> &gt; <span class="el_source">ParMasCercanoDyVEj3.java</span></div><h1>ParMasCercanoDyVEj3.java</h1><pre class="source lang-java linenums">package ual.eda2.practica01;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+
+<span class="nc" id="L11">public class ParMasCercanoDyVEj3 {</span>
+	
+	/*
+	 * Comparador de puntos según la coordenada X
+	 */
+<span class="nc" id="L16">	static Comparator&lt;Poin&gt; compareX = new Comparator&lt;Poin&gt;() {</span>
+		@Override
+		public int compare(Poin p1, Poin p2) {
+<span class="nc" id="L19">			return Double.compare(p1.x, p2.x);</span>
+		}
+	};
+	
+	/*
+	 * Comparador de puntos según la coordenada Y
+	 */
+<span class="nc" id="L26">	static Comparator&lt;Poin&gt; compareY = new Comparator&lt;Poin&gt;() {</span>
+		@Override
+		public int compare(Poin p1, Poin p2) {
+<span class="nc" id="L29">			return Double.compare(p1.y, p2.y);</span>
+		}
+	};
+
+	/**
+     * Calcula la distancia euclídea entre un par de puntos dado
+     * 
+     * @param p1 Primer punto
+     * @param p2 Segundo punto
+     * @return Distancia euclídea entre los dos puntos
+     */
+	public static double distancia(Poin p1, Poin p2) {
+<span class="nc" id="L41">		return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) +</span>
+<span class="nc" id="L42">						(p1.y - p2.y) * (p1.y - p2.y));</span>
+	}
+	
+	/**
+     * Método para encontrar la distancia entre los puntos más cercanos 
+     * de una lista haciendo uso del algoritmo de Divide y Vencerás sin mejorar
+     * 
+     * @param listaPuntos Los puntos a comparar
+     * @return Distancia mínima entre los puntos más cercanos de la lista
+     */
+	public static double parMasCercanoDivideandConquer(ArrayList&lt;Poin&gt; listaPuntos) {
+<span class="nc" id="L53">		Collections.sort(listaPuntos, compareX);</span>
+<span class="nc" id="L54">		return parMasCercanoDivideandConquer(listaPuntos, 0, listaPuntos.size()-1);</span>
+	}
+	
+	
+	/**
+     * Método privado recursivo para encontrar el par más cercano, en este caso, sin ninguna mejora.
+     * 
+     * @param puntos   Lista de puntos ordenados por coordenada X.
+     * @param comienzo Índice inicial del array.
+     * @param fin      Índice final del array.
+     * @return Distancia mínima entre los puntos más cercanos de la lista
+     */
+	private static double parMasCercanoDivideandConquer(ArrayList&lt;Poin&gt; puntos, int comienzo, int fin) {
+		
+		//Caso base, fuerza bruta cuando el array de puntos es de tamaño 3 o inferior.
+		
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		if(fin-comienzo &lt;=3) {</span>
+<span class="nc" id="L71">			double minDist = Double.MAX_VALUE;</span>
+			double aux;
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			for(int i = comienzo; i&lt;=fin; i++) {</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">				for(int j=i+1; j&lt;=fin; j++) {</span>
+<span class="nc" id="L75">					aux = distancia(puntos.get(i), puntos.get(j));</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">					if(aux&lt;minDist) {</span>
+<span class="nc" id="L77">						minDist = aux;</span>
+					}
+				}
+			}
+<span class="nc" id="L81">			return minDist;</span>
+		}
+		else {
+			
+			//Dividir
+			
+<span class="nc" id="L87">			int mitad = comienzo + (fin-comienzo)/2;</span>
+<span class="nc" id="L88">			double izquierda = parMasCercanoDivideandConquer(puntos, comienzo, mitad);</span>
+<span class="nc" id="L89">			double derecha = parMasCercanoDivideandConquer(puntos, mitad+1, fin);</span>
+			
+			//Combinar
+			
+<span class="nc" id="L93">			double delta = Math.min(izquierda, derecha);</span>
+			double aux;
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			for (int i = comienzo; i &lt;= mitad; i++) {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">				for (int j = mitad+1; j &lt;= fin; j++) {</span>
+<span class="nc" id="L97">	                aux = distancia(puntos.get(i), puntos.get(j));</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">	                if (aux&lt; delta) {</span>
+<span class="nc" id="L99">	                    delta = aux;</span>
+	                }
+		        }
+			}
+<span class="nc" id="L103">			return delta;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

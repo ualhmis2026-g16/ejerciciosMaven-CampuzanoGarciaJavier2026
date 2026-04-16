@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DijkstraMainEj1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">DijkstraMainEj1.java</span></div><h1>DijkstraMainEj1.java</h1><pre class="source lang-java linenums">
+	package ual.eda2.practica02;
+
+	import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+	import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+<span class="nc" id="L15">public class DijkstraMainEj1 {</span>
+
+    /**
+     * Reads a graph from a text file.
+     * 
+     * @param filePath The path to the text file
+     * @return A Graph object constructed from the file data
+     * @throws IOException If an I/O error occurs
+     */
+	  public static Graph readGraphFromFile(String filePath) throws IOException {
+<span class="fc" id="L25">	        Graph graph = new Graph();</span>
+<span class="fc" id="L26">	        Map&lt;String, Vertex&gt; verticesMap = new HashMap&lt;&gt;();</span>
+	        
+<span class="fc" id="L28">	        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+	            String line;
+<span class="fc bfc" id="L30" title="All 2 branches covered.">	            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L31">	                line = line.trim();</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">	                if (line.isEmpty()) continue;</span>
+	                
+<span class="fc" id="L34">	                String[] parts = line.split(&quot;\\s+&quot;);</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">	                if (parts.length == 3) {</span>
+<span class="fc" id="L36">	                    String sourceId = parts[0];</span>
+<span class="fc" id="L37">	                    String destId = parts[1];</span>
+<span class="fc" id="L38">	                    double distance = Double.parseDouble(parts[2]);</span>
+	                    
+	                    // Get or create vertices
+<span class="fc" id="L41">	                    Vertex source = getOrCreateVertex(verticesMap, graph, sourceId);</span>
+<span class="fc" id="L42">	                    Vertex dest = getOrCreateVertex(verticesMap, graph, destId);</span>
+	                    
+	                    // Add the edge to the graph (assuming undirected graph)
+<span class="fc" id="L45">	                    graph.addEdge(source, dest, distance);</span>
+<span class="fc" id="L46">	                    graph.addEdge(dest, source, distance); // Remove this line if it's a directed graph</span>
+	                }
+<span class="fc" id="L48">	            }</span>
+	        }
+	        
+<span class="fc" id="L51">	        return graph;</span>
+	    }
+	    
+	    /**
+	     * Helper method to get an existing vertex or create a new one if needed
+	     * @param Map&lt;String, Vertex&gt; verticesMap
+	     * @param Graph graph
+	     * @param String id
+	     * @return Vertex
+	     */
+	    private static Vertex getOrCreateVertex(Map&lt;String, Vertex&gt; verticesMap, Graph graph, String id) {
+<span class="fc" id="L62">	        Vertex vertex = verticesMap.get(id);</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">	        if (vertex == null) {</span>
+<span class="fc" id="L64">	            vertex = new Vertex(id);</span>
+<span class="fc" id="L65">	            verticesMap.put(id, vertex);</span>
+<span class="fc" id="L66">	            graph.addVertex(vertex);</span>
+	        }
+<span class="fc" id="L68">	        return vertex;</span>
+	    }
+	   
+	    /**
+	     * Reconstructs the shortest path from source to destination using the predecessor map
+	     * 
+	     * @param pred The predecessor map from Dijkstra's algorithm
+	     * @param source The source vertex
+	     * @param destination The destination vertex
+	     * @return A list of vertices representing the path from source to destination
+	     */
+	    private static List&lt;Vertex&gt; reconstructPath(TreeMap&lt;Vertex, Vertex&gt; pred, Vertex source, Vertex destination) {
+<span class="nc" id="L80">	        List&lt;Vertex&gt; path = new ArrayList&lt;&gt;();</span>
+	        
+	        // Start from the destination and work backwards
+<span class="nc bnc" id="L83" title="All 2 branches missed.">	        for (Vertex current = destination; current != null; current = pred.get(current)) {</span>
+<span class="nc" id="L84">	            path.add(current);</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">	            if (current.equals(source)) {</span>
+<span class="nc" id="L86">	                break; // We've reached the source</span>
+	            }
+	        }
+	        
+	        // Reverse the path to get source to destination
+<span class="nc" id="L91">	        Collections.reverse(path);</span>
+<span class="nc" id="L92">	        return path;</span>
+	    }
+	    
+	    /**
+	     * Método principal para probar el algoritmo
+	     */
+	    public static void main(String[] args) {
+	        try {
+<span class="nc" id="L100">	        	String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+	                    &quot;src&quot; + File.separator +
+	                    &quot;main&quot; + File.separator +
+	                    &quot;java&quot; + File.separator +
+	                    &quot;ual&quot; + File.separator +
+	                    &quot;eda2&quot; + File.separator +
+	                    &quot;practica02&quot; + File.separator;
+	            
+	            // Cargar el grafo
+<span class="nc" id="L109">	            Graph cityGraph = readGraphFromFile(directorioEntrada + &quot;graphEDAland.txt&quot;);</span>
+<span class="nc" id="L110">	            System.out.println(&quot;Grafo cargado exitosamente.&quot;);</span>
+	            
+	            
+	            // Test Dijkstra's algorithm on the loaded graph
+<span class="nc" id="L114">	            Vertex source = null;</span>
+<span class="nc" id="L115">	            Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L116">	            System.out.print(&quot;Introduce vértice origen (ej: Madrid): &quot;);</span>
+<span class="nc" id="L117">	            String sourceId = scanner.nextLine().trim();</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">	            for (Vertex v : cityGraph.getVertices()) {</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">	                if (v.getId().equals(sourceId)) {</span>
+<span class="nc" id="L120">	                    source = v;</span>
+<span class="nc" id="L121">	                    break;</span>
+	                }
+<span class="nc" id="L123">	            }</span>
+	            
+<span class="nc bnc" id="L125" title="All 2 branches missed.">	            if (source != null) {</span>
+<span class="nc" id="L126">	                System.out.println(&quot;\nRunning Dijkstra's algorithm from &quot; + source + &quot;: &quot;);</span>
+<span class="nc" id="L127">	                Map&lt;String, Object&gt; result = DijkstraEj1.Dijkstra(cityGraph, source);</span>
+	                
+	                @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L130">	                TreeMap&lt;Vertex, Double&gt; dist = (TreeMap&lt;Vertex, Double&gt;) result.get(&quot;dist&quot;);</span>
+	                
+<span class="nc bnc" id="L132" title="All 2 branches missed.">	                for (Map.Entry&lt;Vertex, Double&gt; entry : dist.entrySet()) {</span>
+<span class="nc" id="L133">	                    System.out.println(&quot;Distance to &quot; + entry.getKey().getId() + </span>
+<span class="nc" id="L134">	                                      &quot;: &quot; + entry.getValue());</span>
+<span class="nc" id="L135">	                }</span>
+<span class="nc" id="L136">	                long tiempoEjecucion = (long) result.get(&quot;tiempo_ejecucion_ns&quot;);</span>
+<span class="nc" id="L137">	                int iteraciones = (int) result.get(&quot;iteraciones&quot;);</span>
+<span class="nc" id="L138">	                int actualizaciones = (int) result.get(&quot;actualizaciones&quot;);</span>
+<span class="nc" id="L139">	                int verticesProcesados = (int) result.get(&quot;vertices_procesados&quot;);</span>
+<span class="nc" id="L140">	                int aristasProcesadas = (int) result.get(&quot;aristas_procesadas&quot;);</span>
+	                
+	                // Mostrar estadísticas
+<span class="nc" id="L143">	                System.out.println(&quot;\nEstadísticas de ejecución:&quot;);</span>
+<span class="nc" id="L144">	                System.out.println(&quot;Tiempo de ejecución: &quot; + tiempoEjecucion + &quot; nanosegundos&quot;);</span>
+<span class="nc" id="L145">	                System.out.println(&quot;Iteraciones: &quot; + iteraciones);</span>
+<span class="nc" id="L146">	                System.out.println(&quot;Actualizaciones de distancia: &quot; + actualizaciones);</span>
+<span class="nc" id="L147">	                System.out.println(&quot;Vértices procesados: &quot; + verticesProcesados);</span>
+<span class="nc" id="L148">	                System.out.println(&quot;Aristas procesadas: &quot; + aristasProcesadas);</span>
+
+	            }
+	            
+<span class="nc" id="L152">	        } catch (IOException e) {</span>
+<span class="nc" id="L153">	            System.err.println(&quot;Error reading graph file: &quot; + e.getMessage());</span>
+<span class="nc" id="L154">	        }</span>
+<span class="nc" id="L155">	    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

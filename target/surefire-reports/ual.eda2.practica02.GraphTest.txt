@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: ual.eda2.practica02.GraphTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in ual.eda2.practica02.GraphTest
-ual.eda2.practica02.GraphTest.testAddEdgeAndGetVertices -- Time elapsed: 0.001 s
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in ual.eda2.practica02.GraphTest
+ual.eda2.practica02.GraphTest.testAddEdgeAndGetVertices -- Time elapsed: 0 s
 ual.eda2.practica02.GraphTest.testPeso -- Time elapsed: 0 s
 ual.eda2.practica02.GraphTest.testNoAdyacentes -- Time elapsed: 0 s
 ual.eda2.practica02.GraphTest.testPesoInexistente -- Time elapsed: 0 s
-ual.eda2.practica02.GraphTest.testAdyacentes -- Time elapsed: 0.001 s
+ual.eda2.practica02.GraphTest.testAdyacentes -- Time elapsed: 0 s

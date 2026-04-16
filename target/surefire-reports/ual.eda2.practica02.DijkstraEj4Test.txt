@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ual.eda2.practica02.DijkstraEj4Test
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in ual.eda2.practica02.DijkstraEj4Test
-ual.eda2.practica02.DijkstraEj4Test.testSimpleGraph -- Time elapsed: 0 s
-ual.eda2.practica02.DijkstraEj4Test.testGraphWithCycles -- Time elapsed: 0.001 s
-ual.eda2.practica02.DijkstraEj4Test.testDisconnectedGraph -- Time elapsed: 0 s
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in ual.eda2.practica02.DijkstraEj4Test
+ual.eda2.practica02.DijkstraEj4Test.testSimpleGraph -- Time elapsed: 0.001 s
+ual.eda2.practica02.DijkstraEj4Test.testGraphWithCycles -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj4Test.testDisconnectedGraph -- Time elapsed: 0.001 s
 ual.eda2.practica02.DijkstraEj4Test.testPerformanceMetrics -- Time elapsed: 0 s

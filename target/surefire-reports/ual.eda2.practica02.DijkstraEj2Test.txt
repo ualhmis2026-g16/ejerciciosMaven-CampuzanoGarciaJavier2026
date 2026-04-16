@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: ual.eda2.practica02.DijkstraEj2Test
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in ual.eda2.practica02.DijkstraEj2Test
-ual.eda2.practica02.DijkstraEj2Test.testSimpleGraph -- Time elapsed: 0 s
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in ual.eda2.practica02.DijkstraEj2Test
+ual.eda2.practica02.DijkstraEj2Test.testSimpleGraph -- Time elapsed: 0.001 s
 ual.eda2.practica02.DijkstraEj2Test.loadGraphEdaLandLarge -- Time elapsed: 0.002 s
 ual.eda2.practica02.DijkstraEj2Test.testDijkstraWithCycles -- Time elapsed: 0.001 s
 ual.eda2.practica02.DijkstraEj2Test.testGraphWithCycles -- Time elapsed: 0 s
 ual.eda2.practica02.DijkstraEj2Test.loadGraphEdaLand -- Time elapsed: 0 s
-ual.eda2.practica02.DijkstraEj2Test.testDijkstraDisconnectedGraph -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj2Test.testDijkstraDisconnectedGraph -- Time elapsed: 0.001 s
 ual.eda2.practica02.DijkstraEj2Test.testDijkstraSimpleGraph -- Time elapsed: 0 s
 ual.eda2.practica02.DijkstraEj2Test.testDisconnectedGraph -- Time elapsed: 0 s
-ual.eda2.practica02.DijkstraEj2Test.testNoPath -- Time elapsed: 0 s
+ual.eda2.practica02.DijkstraEj2Test.testNoPath -- Time elapsed: 0.001 s
 ual.eda2.practica02.DijkstraEj2Test.testPerformanceMetrics -- Time elapsed: 0 s

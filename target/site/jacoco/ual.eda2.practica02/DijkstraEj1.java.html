@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DijkstraEj1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">DijkstraEj1.java</span></div><h1>DijkstraEj1.java</h1><pre class="source lang-java linenums">package ual.eda2.practica02;
+import java.util.*;
+
+/**
+ * Clase que implementa el algoritmo de Dijkstra para calcular las distancias más cortas desde un vértice fuente 
+ * a todos los demás vértices en un grafo ponderado.
+ * 
+ * El algoritmo utiliza un enfoque voraz (greedy) y es válido únicamente para grafos con pesos no negativos.
+ * Además, el método calcula estadísticas sobre la ejecución, como el tiempo de ejecución y el número de iteraciones.
+ */
+<span class="nc" id="L11">public class DijkstraEj1 {</span>
+
+    /**
+     * Aplica el algoritmo de Dijkstra para encontrar las distancias más cortas desde un vértice fuente 
+     * a todos los demás vértices de un grafo.
+     * 
+     * @param G El grafo sobre el que se ejecutará el algoritmo.
+     * @param fuente El vértice desde el cual se calculan las distancias más cortas.
+     * @return Un mapa que contiene:
+     *         - &quot;dist&quot;: Un TreeMap que asocia cada vértice con su distancia mínima desde el vértice fuente.
+     *         - &quot;pred&quot;: Un TreeMap que asocia cada vértice con su predecesor en el camino más corto.
+     *         - Información estadística como el tiempo de ejecución, iteraciones, actualizaciones, etc.
+     */
+    public static Map&lt;String, Object&gt; Dijkstra(Graph G, Vertex fuente) {
+        // Medir el tiempo de inicio
+<span class="fc" id="L26">        long startTime = System.nanoTime();</span>
+
+        // Variables para estadísticas
+<span class="fc" id="L29">        int iteraciones = 0;</span>
+<span class="fc" id="L30">        int actualizaciones = 0;</span>
+<span class="fc" id="L31">        int verticesProcesados = 0;</span>
+<span class="fc" id="L32">        int aristasProcesadas = 0;</span>
+
+        // Inicialización de estructuras de datos
+<span class="fc" id="L35">        TreeMap&lt;Vertex, Double&gt; dist = new TreeMap&lt;&gt;(); // Distancias mínimas desde el vértice fuente</span>
+<span class="fc" id="L36">        TreeMap&lt;Vertex, Vertex&gt; pred = new TreeMap&lt;&gt;(); // Predecesores en el camino más corto</span>
+<span class="fc" id="L37">        TreeSet&lt;Vertex&gt; V_menos_S = new TreeSet&lt;&gt;();    // Conjunto de vértices no procesados</span>
+<span class="fc" id="L38">        TreeMap&lt;String, Object&gt; result = new TreeMap&lt;&gt;(); // Resultado final</span>
+
+        // Inicializar V_menos_S con todos los vértices menos la fuente
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (Vertex v : G.getVertices()) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (!v.equals(fuente)) {</span>
+<span class="fc" id="L43">                V_menos_S.add(v);</span>
+            }
+<span class="fc" id="L45">        }</span>
+
+<span class="fc" id="L47">        int adyacentes = 0; // Contador de vértices adyacentes</span>
+
+        // Inicializar distancias y predecesores para cada vértice en V_menos_S
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (Vertex v : V_menos_S) {</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            if (v == fuente) {</span>
+<span class="nc" id="L52">                dist.put(v, 0.0); // La distancia al vértice fuente es 0</span>
+<span class="nc" id="L53">                pred.put(v, null); // No tiene predecesor</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">            } else if (G.adyacentes(fuente, v)) {</span>
+<span class="fc" id="L55">                adyacentes++;</span>
+<span class="fc" id="L56">                dist.put(v, G.peso(fuente, v)); // Peso de la arista desde la fuente</span>
+<span class="fc" id="L57">                pred.put(v, fuente); // Fuente como predecesor</span>
+            } else {
+<span class="fc" id="L59">                dist.put(v, Double.POSITIVE_INFINITY); // Distancia inicial infinita</span>
+<span class="fc" id="L60">                pred.put(v, null); // Sin predecesor</span>
+            }
+<span class="fc" id="L62">        }</span>
+
+        // Mientras queden vértices por procesar
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        while (!V_menos_S.isEmpty()) {</span>
+<span class="fc" id="L66">            iteraciones++; // Contador de iteraciones</span>
+
+            // Encontrar el vértice u con la distancia mínima en V_menos_S
+<span class="fc" id="L69">            Vertex u = null;</span>
+<span class="fc" id="L70">            double minDist = Double.POSITIVE_INFINITY;</span>
+
+<span class="fc bfc" id="L72" title="All 2 branches covered.">            for (Vertex v : V_menos_S) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                if (dist.get(v) &lt; minDist) {</span>
+<span class="fc" id="L74">                    minDist = dist.get(v);</span>
+<span class="fc" id="L75">                    u = v;</span>
+                }
+<span class="fc" id="L77">            }</span>
+
+            // Eliminar u de V_menos_S
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if(u==null) break; </span>
+<span class="fc" id="L81">            V_menos_S.remove(u);</span>
+<span class="fc" id="L82">            verticesProcesados++; // Incrementar contador de vértices procesados</span>
+
+            // Actualizar las distancias de los vértices adyacentes
+<span class="fc bfc" id="L85" title="All 2 branches covered.">            for (Vertex v : V_menos_S) {</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">                if (G.adyacentes(u, v)) { // Si v es adyacente a u</span>
+<span class="fc" id="L87">                    aristasProcesadas++; // Incrementar contador de aristas procesadas</span>
+
+                    // Relajación: actualizar dist[v] si encontramos un camino más corto
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                    if (dist.get(u) + G.weight(u, v) &lt; dist.get(v)) {</span>
+<span class="fc" id="L91">                        dist.put(v, dist.get(u) + G.weight(u, v)); // Nueva distancia mínima</span>
+<span class="fc" id="L92">                        pred.put(v, u); // Actualizar predecesor</span>
+<span class="fc" id="L93">                        actualizaciones++; // Incrementar contador de actualizaciones</span>
+                    }
+                }
+<span class="fc" id="L96">            }</span>
+<span class="fc" id="L97">        }</span>
+
+        // Calcular estadísticas de ejecución
+<span class="fc" id="L100">        long endTime = System.nanoTime();</span>
+<span class="fc" id="L101">        long duration = endTime - startTime;</span>
+
+        // Guardar resultados en el mapa
+<span class="fc" id="L104">        result.put(&quot;dist&quot;, dist);</span>
+<span class="fc" id="L105">        result.put(&quot;pred&quot;, pred);</span>
+<span class="fc" id="L106">        result.put(&quot;tiempo_ejecucion_ns&quot;, duration);</span>
+<span class="fc" id="L107">        result.put(&quot;iteraciones&quot;, iteraciones);</span>
+<span class="fc" id="L108">        result.put(&quot;actualizaciones&quot;, actualizaciones);</span>
+<span class="fc" id="L109">        result.put(&quot;aristas_procesadas&quot;, aristasProcesadas);</span>
+<span class="fc" id="L110">        result.put(&quot;vertices_procesados&quot;, verticesProcesados);</span>
+
+        // Retornar resultados
+<span class="fc" id="L113">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

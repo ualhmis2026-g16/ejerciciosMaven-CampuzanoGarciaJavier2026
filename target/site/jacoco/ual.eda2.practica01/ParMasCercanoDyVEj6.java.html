@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParMasCercanoDyVEj6.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica01</a> &gt; <span class="el_source">ParMasCercanoDyVEj6.java</span></div><h1>ParMasCercanoDyVEj6.java</h1><pre class="source lang-java linenums">package ual.eda2.practica01;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+
+<span class="nc" id="L11">public class ParMasCercanoDyVEj6 {</span>
+	
+	/*
+	 * Comparador de puntos según la coordenada X
+	 */
+<span class="fc" id="L16">	static Comparator&lt;Poin&gt; compareX = new Comparator&lt;Poin&gt;() {</span>
+		@Override
+		public int compare(Poin p1, Poin p2) {
+<span class="fc" id="L19">			return Double.compare(p1.x, p2.x);</span>
+		}
+	};
+	
+	/*
+	 * Comparador de puntos según la coordenada Y
+	 */
+<span class="fc" id="L26">	static Comparator&lt;Poin&gt; compareY = new Comparator&lt;Poin&gt;() {</span>
+		@Override
+		public int compare(Poin p1, Poin p2) {
+<span class="fc" id="L29">			return Double.compare(p1.y, p2.y);</span>
+		}
+	};
+
+	/**
+     * Calcula la distancia euclídea entre un par de puntos dado
+     * 
+     * @param p1 Primer punto
+     * @param p2 Segundo punto
+     * @return Distancia euclídea entre los dos puntos
+     */
+	public static double distancia(Poin p1, Poin p2) {
+<span class="fc" id="L41">		return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) +</span>
+<span class="fc" id="L42">						(p1.y - p2.y) * (p1.y - p2.y));</span>
+	}
+	
+	/**
+     * Método para encontrar la distancia entre los puntos más cercanos 
+     * de una lista haciendo uso del algoritmo de Divide y Vencerás, con la última mejora:
+     * Se crean 2 copias del array de puntos: Px, ordenado por la coordenada X, y Py, ordenado por la coordenada Y.
+     * Tras esto, cada array se divide en 2: Plx, Prx, Ply, Pry. Estos 4 arrays, básicamente dividen a los arrays anteriores
+     * según su posición con respecto a la línea vertical que divide a todos los puntos por la mitad.
+     * De esta manera, se van dividiendo en 4 los arrays de puntos que entran, para luego seguir el mismo procedimiento con la franja.
+     * 
+     * @param listaPuntos Los puntos a comparar
+     * @return Distancia mínima entre los puntos más cercanos de la lista
+     */
+	public static double parMasCercanoDivideandConquer(ArrayList&lt;Poin&gt; listaPuntos) {
+<span class="fc" id="L57">		ArrayList&lt;Poin&gt; puntosejey = new ArrayList&lt;&gt;(listaPuntos);</span>
+<span class="fc" id="L58">		Collections.sort(puntosejey, compareY);</span>
+<span class="fc" id="L59">	    Collections.sort(listaPuntos, compareX);</span>
+<span class="fc" id="L60">	    return parMasCercanoDivideandConquer(listaPuntos, puntosejey, 0, listaPuntos.size() - 1);</span>
+	}
+
+	/**
+     * Parte privada del recursivo.
+     * 
+     * @param Px       Lista de puntos ordenados por la coordenada X.
+     * @param Py       Lista de puntos ordenados por la coordenada Y.
+     * @param comienzo Índice inicial del subarray a considerar.
+     * @param fin      Índice final del subarray a considerar.
+     * @return Distancia mínima entre dos puntos dentro del subarray.
+     */
+	private static double parMasCercanoDivideandConquer(ArrayList&lt;Poin&gt; Px, ArrayList&lt;Poin&gt; Py, int comienzo, int fin) {
+		
+		//Caso base, fuerza bruta cuando el array de puntos es de tamaño 3 o inferior.
+		
+<span class="fc bfc" id="L76" title="All 2 branches covered.">	    if (fin - comienzo &lt;= 3) {</span>
+<span class="fc" id="L77">	    	double minDist = Double.MAX_VALUE;</span>
+			double aux;
+<span class="fc bfc" id="L79" title="All 2 branches covered.">			for(int i = comienzo; i&lt;=fin; i++) {</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">				for(int j=i+1; j&lt;=fin; j++) {</span>
+<span class="fc" id="L81">					aux = distancia(Px.get(i), Px.get(j));</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">					if(aux&lt;minDist) {</span>
+<span class="fc" id="L83">						minDist = aux;</span>
+					}
+				}
+			}
+<span class="fc" id="L87">			return minDist;</span>
+	    } else {
+	    	
+	    	//Dividir
+	    	
+<span class="fc" id="L92">	        int mitad = comienzo + (fin - comienzo) / 2;</span>
+<span class="fc" id="L93">	        double lineaX = Px.get(mitad).x;</span>
+	        
+	        //Combinar
+	        
+<span class="fc" id="L97">	        ArrayList&lt;Poin&gt; plx = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L98">	        ArrayList&lt;Poin&gt; prx = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L99">	        ArrayList&lt;Poin&gt; ply = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L100">	        ArrayList&lt;Poin&gt; pry = new ArrayList&lt;&gt;();</span>
+	        
+<span class="fc bfc" id="L102" title="All 2 branches covered.">	        for (int i = comienzo; i &lt;= fin; i++) {</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">	            if (i &lt;= mitad) {</span>
+<span class="fc" id="L104">	                plx.add(Px.get(i));</span>
+	            } else {
+<span class="fc" id="L106">	                prx.add(Px.get(i));</span>
+	            }
+	        }
+	        
+<span class="fc bfc" id="L110" title="All 2 branches covered.">	        for (Poin p : Py) {</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">	            if (p.x &lt;= lineaX) {</span>
+<span class="fc" id="L112">	                ply.add(p);</span>
+	            } else {
+<span class="fc" id="L114">	                pry.add(p);</span>
+	            }
+<span class="fc" id="L116">	        }</span>
+	        
+<span class="fc" id="L118">	        double dl = parMasCercanoDivideandConquer(plx, ply, 0, plx.size() - 1);</span>
+<span class="fc" id="L119">	        double dr = parMasCercanoDivideandConquer(prx, pry, 0, prx.size() - 1);</span>
+
+<span class="fc" id="L121">	        double delta = Math.min(dl, dr);</span>
+	        
+<span class="fc" id="L123">	        ArrayList&lt;Poin&gt; franja = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">	        for (Poin p : Py) {</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">	            if (Math.abs(p.x - lineaX) &lt; delta) {</span>
+<span class="fc" id="L126">	                franja.add(p);</span>
+	            }
+<span class="fc" id="L128">	        }</span>
+	        
+	        double aux;
+<span class="fc bfc" id="L131" title="All 2 branches covered.">	        for (int i = 0; i &lt; franja.size(); i++) {</span>
+<span class="fc bfc" id="L132" title="All 4 branches covered.">	            for (int j = i + 1; j &lt; franja.size() &amp;&amp; j&lt;=i+7; j++) {</span>
+<span class="fc" id="L133">	                aux = distancia(franja.get(i), franja.get(j));</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">	                if (aux &lt; delta) {</span>
+<span class="fc" id="L135">	                    delta = aux;</span>
+	                }
+	            }
+	        }
+	        
+<span class="fc" id="L140">	        return delta;</span>
+	    }
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

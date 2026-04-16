@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainTSPGreedyVertex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">MainTSPGreedyVertex.java</span></div><h1>MainTSPGreedyVertex.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+<span class="nc" id="L12">public class MainTSPGreedyVertex {</span>
+	public static void main(String[] args) {
+        // Definir el directorio de entrada para el archivo del grafo
+<span class="nc" id="L15">        String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+                &quot;src&quot; + File.separator +
+                &quot;main&quot; + File.separator +
+                &quot;java&quot; + File.separator +
+                &quot;ual&quot; + File.separator +
+                &quot;eda2&quot; + File.separator +
+                &quot;practica03&quot; + File.separator;
+<span class="nc" id="L22">        System.out.println(&quot;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;);</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        for(int j = 1; j&lt;=13; j++) {</span>
+        	// Archivo de entrada del grafo
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        	String añadido = j&lt;10 ? &quot;graphTSP0&quot; : &quot;graphTSP&quot;;</span>
+<span class="nc" id="L26">            String archivoGrafo = directorioEntrada + añadido + j + &quot;.txt&quot;;</span>
+
+            try {
+                // Cargar el grafo desde el archivo
+<span class="nc" id="L30">                Grafo cityGraph = readGraphFromFile(archivoGrafo);</span>
+<span class="nc" id="L31">                System.out.println(&quot;*********************************&quot;);</span>
+                //System.out.println(&quot;Grafo cargado exitosamente (&quot; + archivoGrafo.split(&quot;practica03&quot;)[1] + &quot;).&quot;);
+<span class="nc" id="L33">                List&lt;Vertex&gt; lista = (List&lt;Vertex&gt;) cityGraph.getVertices();</span>
+<span class="nc" id="L34">                Vertex startIndex = lista.get(0);</span>
+<span class="nc" id="L35">            	System.out.println(&quot;Para el archivo: &quot; + archivoGrafo.split(&quot;practica03&quot;)[1]);</span>
+<span class="nc" id="L36">                System.out.println(&quot;Número de vértices del grafo: &quot; + lista.size());</span>
+<span class="nc" id="L37">                System.out.println(&quot;Número de aristas (carreteras) del grafo: &quot; + cityGraph.getNumAristas());</span>
+                //System.out.println(&quot;Se ha cargado el vértice &quot; + startIndex.toString());
+<span class="nc" id="L39">                List&lt;Double&gt; tiempos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L40">                Solucion tsp = new Solucion(null, 0);</span>
+<span class="nc" id="L41">                System.out.println(&quot;\nComienza la ejecución...\n&quot;);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">                for(int i=0; i&lt;10; i++) {</span>
+<span class="nc" id="L43">                	System.out.print(1+i + &quot;/10...&quot;);</span>
+<span class="nc" id="L44">                	long timeInicio = System.nanoTime();</span>
+<span class="nc" id="L45">                    tsp = TSPGreedyVertex.tspGreedyVertex(cityGraph, startIndex);</span>
+<span class="nc" id="L46">                    long timeFinal = System.nanoTime();</span>
+<span class="nc" id="L47">                    long time = timeFinal - timeInicio;</span>
+<span class="nc" id="L48">                    tiempos.add((double) time);</span>
+                }
+<span class="nc" id="L50">                double time = 0;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">                for(double a : tiempos)</span>
+<span class="nc" id="L52">                	time+=a;</span>
+<span class="nc" id="L53">                time/=10;</span>
+<span class="nc" id="L54">                System.out.println(&quot;\n///////////////////////////////////////////&quot;);</span>
+                //System.out.println(&quot;Camino seguido: &quot; + tsp.imprimirResultados());
+            	//System.out.println(&quot;Distancia total: &quot; + tsp.getCoste());
+<span class="nc" id="L57">                System.out.println(&quot;Tiempo de ejecución medio del algoritmo: &quot; + time + &quot;ns&quot;);</span>
+                
+               
+<span class="nc" id="L60">            } catch (IOException e) {</span>
+<span class="nc" id="L61">                System.err.println(&quot;Error leyendo el archivo del grafo: &quot; + e.getMessage());</span>
+<span class="nc" id="L62">            }</span>
+        }
+<span class="nc" id="L64">    }</span>
+
+    /**
+     * Lee un grafo desde un archivo de texto.
+     * 
+     * @param filePath Ruta del archivo de texto
+     * @return Un objeto Graph construido a partir de los datos del archivo
+     * @throws IOException Si ocurre un error de entrada/salida
+     */
+    public static Grafo readGraphFromFile(String filePath) throws IOException {
+<span class="nc" id="L74">        Grafo graph = new Grafo();</span>
+<span class="nc" id="L75">        Map&lt;String, Vertex&gt; verticesMap = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L77">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            while ((line = reader.readLine()) != null) {</span>
+<span class="nc" id="L80">                line = line.trim();</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">                if (line.isEmpty()) continue;</span>
+
+<span class="nc" id="L83">                String[] parts = line.split(&quot;\\s+&quot;);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">                if (parts.length == 3) {</span>
+<span class="nc" id="L85">                    String sourceId = parts[0];</span>
+<span class="nc" id="L86">                    String destId = parts[1];</span>
+<span class="nc" id="L87">                    double distance = Double.parseDouble(parts[2]);</span>
+
+                    // Obtener o crear vértices
+<span class="nc" id="L90">                    Vertex source = getOrCreateVertex(verticesMap, graph, sourceId);</span>
+<span class="nc" id="L91">                    Vertex dest = getOrCreateVertex(verticesMap, graph, destId);</span>
+
+                    // Añadir las aristas al grafo (suponiendo grafo no dirigido)
+<span class="nc" id="L94">                    graph.addEdge(source, dest, distance);</span>
+<span class="nc" id="L95">                    graph.addEdge(dest, source, distance); // Elimina esta línea si el grafo es dirigido</span>
+                }
+<span class="nc" id="L97">            }</span>
+        }
+
+<span class="nc" id="L100">        return graph;</span>
+    }
+
+    /**
+     * Método auxiliar para obtener un vértice existente o crear uno nuevo si es necesario.
+     * 
+     * @param verticesMap Mapa de identificadores de vértices a objetos Vertex
+     * @param graph Grafo donde se añaden los vértices
+     * @param id Identificador del vértice
+     * @return Un objeto Vertex correspondiente al identificador
+     */
+    private static Vertex getOrCreateVertex(Map&lt;String, Vertex&gt; verticesMap, Grafo graph, String id) {
+<span class="nc" id="L112">        Vertex vertex = verticesMap.get(id);</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        if (vertex == null) {</span>
+<span class="nc" id="L114">            vertex = new Vertex(id);</span>
+<span class="nc" id="L115">            verticesMap.put(id, vertex);</span>
+<span class="nc" id="L116">            graph.addVertex(vertex);</span>
+        }
+<span class="nc" id="L118">        return vertex;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

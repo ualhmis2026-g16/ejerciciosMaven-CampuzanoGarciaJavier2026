@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CaminoMasCorto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">CaminoMasCorto.java</span></div><h1>CaminoMasCorto.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+/**
+ * La clase CaminoMasCorto proporciona métodos para encontrar el camino 
+ * más corto (en términos de peso total) en un grafo. Utiliza 
+ * la clase CaminosSimples para obtener todos los caminos simples (circuitos) 
+ * a partir de un vértice de origen y luego selecciona aquel de menor peso.
+ */
+<span class="nc" id="L18">public class CaminoMasCorto {</span>
+
+    /**
+     * Obtiene el camino simple de menor peso a partir del vértice de origen en el grafo dado.
+     * Se recorre el conjunto de caminos simples obtenidos y se selecciona el camino con 
+     * la menor suma de pesos.
+     * 
+     * @param grafo  Grafo en el cual se busca el camino.
+     * @param source Vértice de origen desde el que se inician los caminos.
+     * @return El ArrayList de vértices que representa el camino más corto.
+     */
+    public static ArrayList&lt;Vertex&gt; shortestPath(Graph grafo, Vertex source) {
+<span class="nc" id="L30">        ArrayList&lt;Vertex&gt; caminoElegido = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L31">        double peso = Double.POSITIVE_INFINITY;</span>
+<span class="nc" id="L32">        Map&lt;ArrayList&lt;Vertex&gt;, Double&gt; conjuntoCaminos = CaminosSimples.buscarCaminosSimples(grafo, source);</span>
+        
+        // Iterar sobre cada camino simple y su peso para seleccionar el de menor peso
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (Entry&lt;ArrayList&lt;Vertex&gt;, Double&gt; entry : conjuntoCaminos.entrySet()) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (entry.getValue() &lt; peso) {</span>
+<span class="nc" id="L37">                caminoElegido = entry.getKey();</span>
+<span class="nc" id="L38">                peso = entry.getValue();</span>
+            }
+<span class="nc" id="L40">        }</span>
+        
+<span class="nc" id="L42">        System.out.println(&quot;El camino elegido es: &quot; + caminoElegido.toString());</span>
+<span class="nc" id="L43">        System.out.println();</span>
+<span class="nc" id="L44">        System.out.println(&quot;El peso del camino elegido es: &quot; + peso);</span>
+<span class="nc" id="L45">        return caminoElegido;</span>
+    }
+
+    /**
+     * Método principal para ejecutar el programa.
+     * Se carga un grafo desde un archivo de texto, se imprime un mensaje si el grafo se carga correctamente 
+     * y se llama al método shortestPath para obtener e imprimir el camino más corto iniciando desde un vértice específico.
+     * 
+     * @param args Argumentos de la línea de comandos (no se utilizan).
+     */
+    public static void main(String[] args) {
+<span class="nc" id="L56">        String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+                &quot;src&quot; + File.separator +
+                &quot;main&quot; + File.separator +
+                &quot;java&quot; + File.separator +
+                &quot;ual&quot; + File.separator +
+                &quot;eda2&quot; + File.separator +
+                &quot;practica03&quot; + File.separator;
+
+        // Cargar el grafo
+        try {
+<span class="nc" id="L66">            Graph cityGraph = readGraphFromFile(directorioEntrada + &quot;graphEDALandTSP01.txt&quot;);</span>
+<span class="nc" id="L67">            System.out.println(&quot;Grafo cargado exitosamente.&quot;);</span>
+            
+            // Obtener el camino más corto iniciando en el vértice &quot;Almeria&quot;
+<span class="nc" id="L70">            shortestPath(cityGraph, new Vertex(&quot;Almeria&quot;));</span>
+<span class="nc" id="L71">        } catch (IOException e) {</span>
+<span class="nc" id="L72">            e.printStackTrace();</span>
+<span class="nc" id="L73">        }</span>
+<span class="nc" id="L74">    }</span>
+
+    /**
+     * Lee un grafo desde un archivo de texto.
+     * El archivo debe tener una línea por cada arista con tres elementos separados por espacios:
+     * el identificador del vértice origen, el identificador del vértice destino y el peso (distancia) de la arista.
+     * 
+     * @param filePath Ruta del archivo de texto.
+     * @return Un objeto Graph construido a partir de los datos del archivo.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
+    public static Graph readGraphFromFile(String filePath) throws IOException {
+<span class="nc" id="L86">        Graph graph = new Graph();</span>
+<span class="nc" id="L87">        Map&lt;String, Vertex&gt; verticesMap = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L89">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+<span class="nc bnc" id="L91" title="All 2 branches missed.">            while ((line = reader.readLine()) != null) {</span>
+<span class="nc" id="L92">                line = line.trim();</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                if (line.isEmpty()) continue;</span>
+
+<span class="nc" id="L95">                String[] parts = line.split(&quot;\\s+&quot;);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                if (parts.length == 3) {</span>
+<span class="nc" id="L97">                    String sourceId = parts[0];</span>
+<span class="nc" id="L98">                    String destId = parts[1];</span>
+<span class="nc" id="L99">                    double distance = Double.parseDouble(parts[2]);</span>
+
+                    // Obtener o crear vértices
+<span class="nc" id="L102">                    Vertex source = getOrCreateVertex(verticesMap, graph, sourceId);</span>
+<span class="nc" id="L103">                    Vertex dest = getOrCreateVertex(verticesMap, graph, destId);</span>
+
+                    // Añadir la arista al grafo (suponiendo grafo no dirigido)
+<span class="nc" id="L106">                    graph.addEdge(source, dest, distance);</span>
+<span class="nc" id="L107">                    graph.addEdge(dest, source, distance); // Eliminar esta línea si el grafo es dirigido</span>
+                }
+<span class="nc" id="L109">            }</span>
+        }
+
+<span class="nc" id="L112">        return graph;</span>
+    }
+
+    /**
+     * Método auxiliar que obtiene un vértice existente o crea uno nuevo si es necesario.
+     * 
+     * @param verticesMap Mapa de identificadores de vértices a objetos Vertex.
+     * @param graph       Grafo en el cual se añaden los vértices.
+     * @param id          Identificador del vértice.
+     * @return Un objeto Vertex correspondiente al identificador dado.
+     */
+    private static Vertex getOrCreateVertex(Map&lt;String, Vertex&gt; verticesMap, Graph graph, String id) {
+<span class="nc" id="L124">        Vertex vertex = verticesMap.get(id);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (vertex == null) {</span>
+<span class="nc" id="L126">            vertex = new Vertex(id);</span>
+<span class="nc" id="L127">            verticesMap.put(id, vertex);</span>
+<span class="nc" id="L128">            graph.addVertex(vertex);</span>
+        }
+<span class="nc" id="L130">        return vertex;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DijkstraEj8.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">DijkstraEj8.java</span></div><h1>DijkstraEj8.java</h1><pre class="source lang-java linenums">package ual.eda2.practica02;
+
+import java.util.Map.Entry;
+
+
+import java.util.PriorityQueue;
+import java.util.TreeMap;
+
+<span class="nc" id="L9">public class DijkstraEj8 {</span>
+
+    /**
+     * Clase interna para representar un elemento en la cola de prioridad
+     * Cada elemento contiene el vértice destino (to), la distancia y el vértice origen (from)
+     */
+    private static class VertexTriple implements Comparable&lt;VertexTriple&gt; {
+        Vertex to;       // Vértice destino
+        double distance; // Distancia acumulada hasta este vértice
+        Vertex from;     // Vértice origen (predecesor)
+        
+<span class="fc" id="L20">        public VertexTriple(Vertex to, double distance, Vertex from) {</span>
+<span class="fc" id="L21">            this.to = to;</span>
+<span class="fc" id="L22">            this.distance = distance;</span>
+<span class="fc" id="L23">            this.from = from;</span>
+<span class="fc" id="L24">        }</span>
+        
+        @Override
+        public int compareTo(VertexTriple other) {
+<span class="fc" id="L28">            return Double.compare(this.distance, other.distance);</span>
+        }
+    }
+    
+    /**
+     * Versión del algoritmo de Dijkstra usando Best-First Search con un solo vértice origen
+     * @param G Grafo con los vértices y aristas
+     * @param fuente Vértice inicial
+     * @return Mapa con distancias y predecesores
+     */
+    public static TreeMap&lt;String, Object&gt; Dijkstra(Graph G, Vertex fuente) {
+<span class="fc" id="L39">        return DijkstraAux(G, fuente);</span>
+    }
+    
+    /**
+     * Versión del algoritmo de Dijkstra usando Best-First Search
+     * No utiliza una estructura para almacenar vértices visitados
+     * @param G Grafo con los vértices y aristas
+     * @param fuente Vértice inicial
+     * @param intermedio Vértice intermedio
+     * @param destino Vértice destino
+     * @return Mapa con distancias y predecesores
+     */
+    public static TreeMap&lt;String, Object&gt; DijkstraIntermedio(Graph G, Vertex fuente, Vertex intermedio, Vertex destino){
+<span class="fc" id="L52">    	TreeMap&lt;String, Object&gt; result = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L53">    	TreeMap&lt;String, Object&gt; dijkstraFuente = DijkstraAux(G, fuente);</span>
+<span class="fc" id="L54">    	TreeMap&lt;String, Object&gt; dijkstraIntermedio = DijkstraAux(G, intermedio);</span>
+<span class="fc" id="L55">    	TreeMap&lt;Vertex, Double&gt; distFuente = (TreeMap&lt;Vertex, Double&gt;) dijkstraFuente.get(&quot;dist&quot;);</span>
+<span class="fc" id="L56">        TreeMap&lt;Vertex, Double&gt; distIntermedio = (TreeMap&lt;Vertex, Double&gt;) dijkstraIntermedio.get(&quot;dist&quot;);</span>
+<span class="fc" id="L57">        TreeMap&lt;Vertex, Vertex&gt; predFuente = (TreeMap&lt;Vertex, Vertex&gt;) dijkstraFuente.get(&quot;pred&quot;);</span>
+<span class="fc" id="L58">        TreeMap&lt;Vertex, Vertex&gt; predIntermedio = (TreeMap&lt;Vertex, Vertex&gt;) dijkstraIntermedio.get(&quot;pred&quot;);</span>
+<span class="fc" id="L59">        long duracion = (long)dijkstraFuente.get(&quot;tiempo_ejecucion_ns&quot;) + (long)dijkstraIntermedio.get(&quot;tiempo_ejecucion_ns&quot;);</span>
+<span class="fc" id="L60">        int iteraciones = (int)dijkstraFuente.get(&quot;iteraciones&quot;) + (int)dijkstraIntermedio.get(&quot;iteraciones&quot;);</span>
+<span class="fc" id="L61">        int actualizaciones = (int)dijkstraFuente.get(&quot;actualizaciones&quot;) + (int)dijkstraIntermedio.get(&quot;actualizaciones&quot;);</span>
+<span class="fc" id="L62">        int verticesProcesados = (int)dijkstraFuente.get(&quot;vertices_procesados&quot;) + (int)dijkstraIntermedio.get(&quot;vertices_procesados&quot;);</span>
+<span class="fc" id="L63">        int aristasProcesadas = (int)dijkstraFuente.get(&quot;aristas_procesadas&quot;) + (int)dijkstraIntermedio.get(&quot;aristas_procesadas&quot;);</span>
+<span class="fc" id="L64">        result.put(&quot;distFuente&quot;, distFuente);</span>
+<span class="fc" id="L65">        result.put(&quot;distIntermedio&quot;, distIntermedio);</span>
+<span class="fc" id="L66">        result.put(&quot;predFuente&quot;, predFuente);</span>
+<span class="fc" id="L67">        result.put(&quot;predIntermedio&quot;, predIntermedio);</span>
+<span class="fc" id="L68">        result.put(&quot;tiempo_ejecucion_ns&quot;, duracion);</span>
+<span class="fc" id="L69">        result.put(&quot;iteraciones&quot;, iteraciones);</span>
+<span class="fc" id="L70">        result.put(&quot;actualizaciones&quot;, actualizaciones);</span>
+<span class="fc" id="L71">        result.put(&quot;vertices_procesados&quot;, verticesProcesados);</span>
+<span class="fc" id="L72">        result.put(&quot;aristas_procesadas&quot;, aristasProcesadas);</span>
+        
+        // Añadir el dist para compatibilidad con los tests
+<span class="fc" id="L75">        result.put(&quot;dist&quot;, distFuente);</span>
+        
+<span class="fc" id="L77">        return result;</span>
+    }
+    
+    public static TreeMap&lt;String, Object&gt; DijkstraAux(Graph G, Vertex fuente) {
+        // Variables para medir rendimiento
+<span class="fc" id="L82">        long startTime = System.nanoTime();</span>
+<span class="fc" id="L83">        int iteraciones = 0;</span>
+<span class="fc" id="L84">        int actualizaciones = 0;</span>
+<span class="fc" id="L85">        int verticesProcesados = 0;</span>
+<span class="fc" id="L86">        int aristasProcesadas = 0;</span>
+        
+        // Estructuras de datos
+<span class="fc" id="L89">        TreeMap&lt;Vertex, Double&gt; dist = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L90">        TreeMap&lt;Vertex, Vertex&gt; pred = new TreeMap&lt;&gt;();</span>
+        
+        // Cola de prioridad organizada por distancia mínima con tripletas &lt;to, distance, from&gt;
+<span class="fc" id="L93">        PriorityQueue&lt;VertexTriple&gt; pq = new PriorityQueue&lt;&gt;();</span>
+        
+        /// Inicializar distancias
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        for (Vertex v : G.getVertices()) {</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">           if (v.equals(fuente)) {</span>
+<span class="fc" id="L98">               dist.put(v, 0.0); // Distancia a la fuente debería ser 0</span>
+           } else {
+<span class="fc" id="L100">               dist.put(v, Double.POSITIVE_INFINITY); // Los demás vértices a INFINITY</span>
+           }
+<span class="fc" id="L102">           pred.put(v, null);</span>
+<span class="fc" id="L103">       }</span>
+        
+        // Añadir el vértice fuente a la cola
+<span class="fc" id="L106">        pq.add(new VertexTriple(fuente, Double.POSITIVE_INFINITY, null));</span>
+        
+        // Mientras la cola de prioridad no esté vacía
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        while (!pq.isEmpty()) {</span>
+<span class="fc" id="L110">            iteraciones++;</span>
+            
+            // Extraer la tripleta con menor distancia
+<span class="fc" id="L113">            VertexTriple triple = pq.poll();</span>
+<span class="fc" id="L114">            Vertex to = triple.to;</span>
+<span class="fc" id="L115">            double ancho = triple.distance;</span>
+<span class="fc" id="L116">            Vertex from = triple.from;</span>
+            
+            // Si la distancia en la cola es mayor que la registrada, ignorar este camino
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if (ancho &lt; dist.get(to)) {</span>
+<span class="nc" id="L120">                continue;</span>
+            }
+            
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            if(from!=null) {</span>
+<span class="fc" id="L124">            	pred.put(to, from);</span>
+            }
+            
+<span class="fc" id="L127">            verticesProcesados++;</span>
+            
+            // Para cada vértice adyacente
+<span class="fc bfc" id="L130" title="All 2 branches covered.">            for (Vertex neighbor : G.getVertices()) {</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">                if (G.adyacentes(to, neighbor)) {</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">                   if (G.adyacentes(to, neighbor)) {</span>
+<span class="fc" id="L133">                      aristasProcesadas++;</span>
+                      
+                      // Calcular nueva distancia
+<span class="fc" id="L136">                      double weight = G.weight(to, neighbor);</span>
+<span class="fc" id="L137">                      double newDist = dist.get(to) + weight;</span>
+                      
+                      // Verificar si hay un camino más corto
+<span class="fc bfc" id="L140" title="All 2 branches covered.">                      if (newDist &lt; dist.get(neighbor)) {</span>
+                          // Actualizar distancia
+<span class="fc" id="L142">                          dist.put(neighbor, newDist);</span>
+                          
+                          // Añadir a la cola con la nueva distancia y el vértice origen
+<span class="fc" id="L145">                          pq.add(new VertexTriple(neighbor, newDist, to));</span>
+                          
+<span class="fc" id="L147">                          actualizaciones++;</span>
+                      }
+                   }
+                }
+<span class="fc" id="L151">            }</span>
+<span class="fc" id="L152">        }</span>
+        
+        // Calcular estadísticas
+<span class="fc" id="L155">        long endTime = System.nanoTime();</span>
+<span class="fc" id="L156">        long duration = endTime - startTime;</span>
+        
+        // Prepara resultado
+<span class="fc" id="L159">        TreeMap&lt;String, Object&gt; result = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L160">        result.put(&quot;dist&quot;, dist);</span>
+<span class="fc" id="L161">        result.put(&quot;pred&quot;, pred);</span>
+<span class="fc" id="L162">        result.put(&quot;tiempo_ejecucion_ns&quot;, duration);</span>
+<span class="fc" id="L163">        result.put(&quot;iteraciones&quot;, iteraciones);</span>
+<span class="fc" id="L164">        result.put(&quot;actualizaciones&quot;, actualizaciones);</span>
+<span class="fc" id="L165">        result.put(&quot;vertices_procesados&quot;, verticesProcesados);</span>
+<span class="fc" id="L166">        result.put(&quot;aristas_procesadas&quot;, aristasProcesadas);</span>
+        
+<span class="fc" id="L168">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

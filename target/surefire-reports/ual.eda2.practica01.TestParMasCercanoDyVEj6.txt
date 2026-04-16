@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: ual.eda2.practica01.TestParMasCercanoDyVEj6
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.792 s -- in ual.eda2.practica01.TestParMasCercanoDyVEj6
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.912 s -- in ual.eda2.practica01.TestParMasCercanoDyVEj6
 ual.eda2.practica01.TestParMasCercanoDyVEj6.barras -- Time elapsed: 0 s
-ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVSpain -- Time elapsed: 0.080 s
-ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNAcl -- Time elapsed: 0.080 s
-ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNApp -- Time elapsed: 0.163 s
-ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNArd -- Time elapsed: 3.370 s
-ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNArr -- Time elapsed: 1.095 s
+ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVSpain -- Time elapsed: 0.087 s
+ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNAcl -- Time elapsed: 0.073 s
+ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNApp -- Time elapsed: 0.153 s
+ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNArd -- Time elapsed: 4.208 s
+ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVNArr -- Time elapsed: 1.387 s
 ual.eda2.practica01.TestParMasCercanoDyVEj6.parMasCercanoDyVEdaLand -- Time elapsed: 0 s

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TSPGreedyVertex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">TSPGreedyVertex.java</span></div><h1>TSPGreedyVertex.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+<span class="nc" id="L8">public class TSPGreedyVertex{</span>
+	/**
+	 * Resuelve el problema del viajero (TSP) utilizando un enfoque voraz basado 
+	 * en la selección del vecino más cercano.
+	 * 
+	 * @param g El grafo completo representado como una lista de adyacencia.
+	 * @param startVertex El vértice de inicio desde el cual se inicia la búsqueda.
+	 * @return La solución encontrada para el TSP utilizando el algoritmo voraz.
+	 */
+	public static Solucion tspGreedyVertex(Grafo g, Vertex startVertex) {
+		// Verifica que el vértice inicial sea válido y esté presente en el grafo
+<span class="fc bfc" id="L19" title="All 4 branches covered.">		if(startVertex == null || !g.getVertices().contains(startVertex)) return null;</span>
+
+		// Conjunto para almacenar los vértices visitados
+<span class="fc" id="L22">		Set&lt;Vertex&gt; visitados = new HashSet&lt;&gt;();</span>
+		
+		// Lista para almacenar el camino (recorrido)
+<span class="fc" id="L25">		List&lt;Vertex&gt; path = new LinkedList&lt;&gt;();</span>
+		
+		// Variable para almacenar el peso total del recorrido
+<span class="fc" id="L28">		Double totalWeight = 0.0;</span>
+		
+		// El vértice actual es el vértice inicial
+<span class="fc" id="L31">		Vertex actual = startVertex;</span>
+<span class="fc" id="L32">		visitados.add(actual);</span>
+<span class="fc" id="L33">		path.add(actual);</span>
+<span class="fc" id="L34">		Double w = null;</span>
+
+		// Mientras haya vértices por visitar
+<span class="fc bfc" id="L37" title="All 2 branches covered.">		while (visitados.size() &lt; g.size()) {</span>
+			// Encuentra el vecino más cercano que aún no ha sido visitado
+<span class="fc" id="L39">			Vertex siguiente = vecinoMasCercano(g, visitados, actual);</span>
+			
+			// Añade el vecino más cercano al recorrido
+<span class="fc" id="L42">			path.add(siguiente);</span>
+			
+			// Obtiene el peso de la arista entre el vértice actual y el siguiente
+<span class="fc" id="L45">			w = g.peso(actual, siguiente);</span>
+<span class="fc" id="L46">			totalWeight += w;</span>
+			
+			// Marca el siguiente vértice como visitado
+<span class="fc" id="L49">			visitados.add(siguiente);</span>
+			
+			// El siguiente vértice pasa a ser el actual
+<span class="fc" id="L52">			actual = siguiente;</span>
+<span class="fc" id="L53">		}</span>
+		
+		// Añade el vértice inicial al final para formar un ciclo
+<span class="fc" id="L56">		path.add(startVertex);</span>
+		
+		// Obtiene el peso de la arista que conecta el último vértice con el inicial
+<span class="fc" id="L59">		w = g.peso(actual, startVertex);</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">		if(w == null) throw new RuntimeException(&quot;No existe solucion&quot;);</span>
+		
+		// Suma el peso de la arista final al total
+<span class="fc" id="L63">		totalWeight += w;</span>
+		
+		// Devuelve la solución con el recorrido y el peso total
+<span class="fc" id="L66">		return new Solucion(path, totalWeight);</span>
+	}
+
+	/**
+	 * Busca el vecino más cercano a un vértice actual que no ha sido visitado.
+	 * 
+	 * @param g El grafo en el que se busca el vecino más cercano.
+	 * @param visited Conjunto de vértices ya visitados.
+	 * @param actual El vértice actual desde el cual se busca el vecino más cercano.
+	 * @return El vecino más cercano al vértice actual que no ha sido visitado.
+	 */
+	private static Vertex vecinoMasCercano(Grafo g, Set&lt;Vertex&gt; visited, Vertex actual) {
+<span class="fc" id="L78">		Double min = Double.MAX_VALUE;  // Inicializa el peso mínimo con un valor muy grande</span>
+<span class="fc" id="L79">		Vertex mejorVecino = null;  // Inicializa el mejor vecino como nulo</span>
+
+		// Recorre los vecinos del vértice actual
+<span class="fc bfc" id="L82" title="All 2 branches covered.">		for (Vertex v : g.getVecinos(actual)) {</span>
+			// Si el vecino aún no ha sido visitado
+<span class="fc bfc" id="L84" title="All 2 branches covered.">			if (!visited.contains(v)) {</span>
+				// Obtiene el peso de la arista entre el vértice actual y el vecino
+<span class="fc" id="L86">				Double w = g.peso(actual, v);</span>
+				// Si el peso es menor al mínimo actual, actualiza el vecino más cercano
+<span class="fc bfc" id="L88" title="All 2 branches covered.">				if(w &lt; min) {</span>
+<span class="fc" id="L89">					min = w;</span>
+<span class="fc" id="L90">					mejorVecino = v;</span>
+				}
+			}
+<span class="fc" id="L93">		}</span>
+
+		// Retorna el vecino más cercano
+<span class="fc" id="L96">		return mejorVecino;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

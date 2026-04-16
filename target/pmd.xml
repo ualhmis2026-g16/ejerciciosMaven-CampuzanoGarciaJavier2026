@@ -1,0 +1,1593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.53.0" timestamp="2026-04-16T17:17:04.712">
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoIterativoMejorado.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoIterativoMejorado.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoIterativoMejorado.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/Poin.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/Poin.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/Poin.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj4.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj4.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj4.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoIterativo.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoIterativo.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoIterativo.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj2.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj2.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj2.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj1.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj1.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj1.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj3.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj3.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj3.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj3.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj3.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj3.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ClosestPairDyVImproved.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ClosestPairDyVImproved.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ClosestPairDyVImproved.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj4.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj4.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj4.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj6.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj6.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj6.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj5.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj5.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica01/ParMasCercanoDyVEj5.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/Graph.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/Graph.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/Graph.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj7.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj7.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj7.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj8.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj8.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj8.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj1.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj1.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj1.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj4.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj4.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj4.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj7.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj7.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj7.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj6.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj6.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj6.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj5.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj5.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraEj5.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj6.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj6.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj6.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj1EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj1EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj1EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj3EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj3EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj3EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj2.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj2.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj2.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/Vertex.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/Vertex.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/Vertex.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj2EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj2EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj2EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj8.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj8.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj8.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Edge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Edge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Edge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj6EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj6EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj6EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminosSimples.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminosSimples.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminosSimples.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj5.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj5.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainAuxEj5.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminoMasCorto.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminoMasCorto.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminoMasCorto.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Graph.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Graph.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Graph.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminosSimplesMain.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminosSimplesMain.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/CaminosSimplesMain.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj3.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj3.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/DijkstraMainEj3.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj4EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj4EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj4EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPBruteForce.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPBruteForce.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPBruteForce.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj5EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj5EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj5EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPIterative.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPIterative.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPIterative.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPGreedyVertex.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPGreedyVertex.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPGreedyVertex.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Grafo.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Grafo.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Grafo.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Solucion.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Solucion.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Solucion.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj8EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj8EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj8EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj7EDALandLarge.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj7EDALandLarge.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica02/MainEj7EDALandLarge.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPGreedyEdges.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPGreedyEdges.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPGreedyEdges.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Vertex.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Vertex.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/Vertex.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPGreedyEdges.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPGreedyEdges.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPGreedyEdges.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPGreedyVertex.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPGreedyVertex.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPGreedyVertex.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPBruteForce.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPBruteForce.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPBruteForce.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPRecursive.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPRecursive.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/MainTSPRecursive.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPRecursive.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPRecursive.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPRecursive.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPIterative.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPIterative.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/TSPIterative.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+<error filename="/Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/NuevaRed.java" msg="PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/NuevaRed.java">
+<![CDATA[net.sourceforge.pmd.PMDException: Error while processing /Users/javiercampuzanogarcia/Documents/VisualStudio/ejerciciosMaven-CampuzanoGarciaJavier2026/src/main/java/ual/eda2/practica03/NuevaRed.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:128)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:100)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:62)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:89)
+	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:30)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:199)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:287)
+	at net.sourceforge.pmd.lang.java.typeresolution.PMDASMClassLoader.getImportedClasses(PMDASMClassLoader.java:118)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.populateClassName(ClassTypeResolver.java:1643)
+	at net.sourceforge.pmd.lang.java.typeresolution.ClassTypeResolver.visit(ClassTypeResolver.java:216)
+	at net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit.jjtAccept(ASTCompilationUnit.java:44)
+	at net.sourceforge.pmd.lang.java.typeresolution.TypeResolutionFacade.initializeWith(TypeResolutionFacade.java:21)
+	at net.sourceforge.pmd.lang.java.AbstractJavaHandler$5.start(AbstractJavaHandler.java:121)
+	at net.sourceforge.pmd.SourceCodeProcessor.usesTypeResolution(SourceCodeProcessor.java:178)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:205)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCodeWithoutCache(SourceCodeProcessor.java:118)
+	... 10 more
+]]>
+</error>
+</pmd>

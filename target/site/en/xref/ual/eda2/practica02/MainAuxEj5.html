@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>MainAuxEj5 xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../apidocs/ual/eda2/practica02/MainAuxEj5.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> ual.eda2.practica02;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a name="MainAuxEj5" href="../../../ual/eda2/practica02/MainAuxEj5.html#MainAuxEj5">MainAuxEj5</a> {
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment">     * Método principal para probar el algoritmo</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment">     * @param String[] args</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>              String directorioEntrada = System.getProperty(<span class="jxr_string">"user.dir"</span>) + File.separator +
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>                      <span class="jxr_string">"src"</span> + File.separator +
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>                      <span class="jxr_string">"main"</span> + File.separator +
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>                      <span class="jxr_string">"java"</span> + File.separator +
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>                      <span class="jxr_string">"ual"</span> + File.separator +
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>                      <span class="jxr_string">"eda2"</span> + File.separator +
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>                      <span class="jxr_string">"practica02"</span> + File.separator;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>              <em class="jxr_comment">// Cargar el grafo</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>              <a name="Graph" href="../../../ual/eda2/practica02/Graph.html#Graph">Graph</a> cityGraph = DijkstraMainEj1.readGraphFromFile(directorioEntrada + <span class="jxr_string">"graphEDAland.txt"</span>);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>              System.out.println(<span class="jxr_string">"Grafo cargado exitosamente."</span>);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>              <em class="jxr_comment">// Cargar posiciones para la heurística</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>              Map&lt;Vertex, <strong class="jxr_keyword">double</strong>[]&gt; positions = loadPositions(directorioEntrada + <span class="jxr_string">"graphEDALandpositions.txt"</span>, cityGraph);
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>              <em class="jxr_comment">// Mostrar vértices disponibles</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>              System.out.println(<span class="jxr_string">"\nVértices disponibles en el grafo:"</span>);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>              <strong class="jxr_keyword">for</strong> (<a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> v : cityGraph.getVertices()) {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>                  System.out.print(v.getId() + <span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>              }
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>              System.out.println(<span class="jxr_string">"\n"</span>);
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              <em class="jxr_comment">// Crear un mapa para buscar vértices rápidamente por ID</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              Map&lt;String, Vertex&gt; vertexMap = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>              <strong class="jxr_keyword">for</strong> (<a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> v : cityGraph.getVertices()) {
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>                  vertexMap.put(v.getId(), v);
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              }
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>              <em class="jxr_comment">// Obtener origen y destino por entrada de usuario</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>              Scanner scanner = <strong class="jxr_keyword">new</strong> Scanner(System.in);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>              System.out.print(<span class="jxr_string">"Introduce vértice origen (ej: Madrid): "</span>);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              String sourceId = scanner.nextLine().trim();
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>              System.out.print(<span class="jxr_string">"Introduce vértice destino: "</span>);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              String destId = scanner.nextLine().trim();
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              <em class="jxr_comment">// Buscar vértices origen y destino</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              <a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> source = vertexMap.get(sourceId);
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              <a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> destination = vertexMap.get(destId);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              <em class="jxr_comment">// Comprobar si se encontraron ambos vértices</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              <strong class="jxr_keyword">if</strong> (source == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>                  System.out.println(<span class="jxr_string">"Vértice origen no encontrado: "</span> + sourceId);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                  <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>              }
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>              <strong class="jxr_keyword">if</strong> (destination == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                  System.out.println(<span class="jxr_string">"Vértice destino no encontrado: "</span> + destId);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                  <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>              }
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>              <em class="jxr_comment">// Ejecutar el algoritmo A*</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              System.out.println(<span class="jxr_string">"\nEjecutando algoritmo A* desde "</span> + sourceId + <span class="jxr_string">" hasta "</span> + destId + <span class="jxr_string">":"</span>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>              Map&lt;String, Object&gt; result = DijkstraEj5.findPath(cityGraph, source, destination, positions);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              <em class="jxr_comment">// Obtener resultados</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              List&lt;Vertex&gt; path = (List&lt;Vertex&gt;) result.get(<span class="jxr_string">"path"</span>);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              <strong class="jxr_keyword">double</strong> distance = (<strong class="jxr_keyword">double</strong>) result.get(<span class="jxr_string">"distance"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              <strong class="jxr_keyword">boolean</strong> pathFound = (<strong class="jxr_keyword">boolean</strong>) result.get(<span class="jxr_string">"pathFound"</span>);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              <em class="jxr_comment">// Obtener estadísticas</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              <strong class="jxr_keyword">long</strong> tiempoEjecucion = (<strong class="jxr_keyword">long</strong>) result.get(<span class="jxr_string">"tiempo_ejecucion_ns"</span>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              <strong class="jxr_keyword">int</strong> nodosEvaluados = (<strong class="jxr_keyword">int</strong>) result.get(<span class="jxr_string">"nodos_evaluados"</span>);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              <strong class="jxr_keyword">int</strong> nodosGenerados = (<strong class="jxr_keyword">int</strong>) result.get(<span class="jxr_string">"nodos_generados"</span>);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              <em class="jxr_comment">// Mostrar estadísticas</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              System.out.println(<span class="jxr_string">"\nEstadísticas de ejecución de A*:"</span>);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              System.out.println(<span class="jxr_string">"Tiempo de ejecución: "</span> + tiempoEjecucion + <span class="jxr_string">" nanosegundos"</span>);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>              System.out.println(<span class="jxr_string">"Nodos evaluados: "</span> + nodosEvaluados);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              System.out.println(<span class="jxr_string">"Nodos generados: "</span> + nodosGenerados);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              <em class="jxr_comment">// Mostrar resultados</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              <strong class="jxr_keyword">if</strong> (pathFound) {
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>                  System.out.println(<span class="jxr_string">"\nCamino más corto encontrado de "</span> + sourceId + <span class="jxr_string">" a "</span> + destId + <span class="jxr_string">":"</span>);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>                  System.out.printf(<span class="jxr_string">"Distancia: %.2f\n"</span>, distance);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>                  System.out.print(<span class="jxr_string">"Ruta: "</span>);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>                  <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; path.size(); i++) {
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>                      System.out.print(path.get(i).getId());
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>                      <strong class="jxr_keyword">if</strong> (i &lt; path.size() - 1) {
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>                          System.out.print(<span class="jxr_string">" -&gt; "</span>);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>                      }
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>                  }
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>                  System.out.println();
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>                 System.out.println(<span class="jxr_string">"\nNo se encontró camino de "</span> + sourceId + <span class="jxr_string">" a "</span> + destId);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             }
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             scanner.close();
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             System.err.println(<span class="jxr_string">"Error al leer el archivo del grafo: "</span> + e.getMessage());
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         }
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>     }
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_javadoccomment">     * Carga las posiciones de los vértices desde un archivo</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_javadoccomment">     * para usar en la función heurística.</em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment">     * Formato del archivo:</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <em class="jxr_javadoccomment">     * - Líneas iniciales con número de vértices y aristas (ignoradas)</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <em class="jxr_javadoccomment">     * - Lista de posiciones: id_vertice x y</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> <em class="jxr_javadoccomment">     * - Lista de aristas al final (ignoradas)</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_javadoccomment">     * @param String filePath</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment">     * @param Graph graph</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment">     * @return Map&lt;Vertex, double[]&gt;</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Map&lt;Vertex, <strong class="jxr_keyword">double</strong>[]&gt; loadPositions(String filePath, <a name="Graph" href="../../../ual/eda2/practica02/Graph.html#Graph">Graph</a> graph) {
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         Map&lt;Vertex, <strong class="jxr_keyword">double</strong>[]&gt; positions = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             Scanner scanner = <strong class="jxr_keyword">new</strong> Scanner(<strong class="jxr_keyword">new</strong> File(filePath));
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>             <em class="jxr_comment">// Ignorar las dos primeras líneas (número de vértices y aristas)</em>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             <strong class="jxr_keyword">if</strong> (scanner.hasNextLine()) scanner.nextLine(); <em class="jxr_comment">// Ignorar línea 1</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>             <strong class="jxr_keyword">if</strong> (scanner.hasNextLine()) scanner.nextLine(); <em class="jxr_comment">// Ignorar línea 2</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>             <em class="jxr_comment">// Leer posiciones de los vértices</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>             <strong class="jxr_keyword">while</strong> (scanner.hasNextLine()) {
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                 String line = scanner.nextLine().trim();
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                 <em class="jxr_comment">// Detener la lectura al encontrar la lista de aristas</em>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                 <strong class="jxr_keyword">if</strong> (line.matches(<span class="jxr_string">"^[A-Za-z]+&#92;&#92;s+[A-Za-z]+&#92;&#92;s+&#92;&#92;d+$"</span>)) {
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                     <strong class="jxr_keyword">break</strong>; <em class="jxr_comment">// Línea coincide con el formato de una arista</em>
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                 }
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>                 <em class="jxr_comment">// Dividir la línea en partes</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>                 String[] parts = line.split(<span class="jxr_string">"&#92;&#92;s+"</span>);
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>                 <strong class="jxr_keyword">if</strong> (parts.length != 3) {
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>                     System.out.println(<span class="jxr_string">"Línea inválida en el archivo de posiciones: "</span> + line);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                     <strong class="jxr_keyword">continue</strong>; <em class="jxr_comment">// Saltar líneas mal formateadas</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                 }
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                 String id = parts[0];
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>                 <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                     <strong class="jxr_keyword">double</strong> x = Double.parseDouble(parts[1]);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                     <strong class="jxr_keyword">double</strong> y = Double.parseDouble(parts[2]);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                     <em class="jxr_comment">// Buscar el vértice correspondiente en el grafo</em>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                     <a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> vertex = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                     <strong class="jxr_keyword">for</strong> (<a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> v : graph.getVertices()) {
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>                         <strong class="jxr_keyword">if</strong> (v.getId().equals(id)) {
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                             vertex = v;
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>                             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>                         }
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                     }
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>                     <strong class="jxr_keyword">if</strong> (vertex == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                         System.out.println(<span class="jxr_string">"Vértice desconocido en el archivo de posiciones: "</span> + id);
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>                         <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                     }
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>                     <em class="jxr_comment">// Asignar las coordenadas al vértice</em>
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                     positions.put(vertex, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[]{x, y});
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>                 } <strong class="jxr_keyword">catch</strong> (NumberFormatException e) {
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>                     System.out.println(<span class="jxr_string">"Error al analizar coordenadas en la línea: "</span> + line);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                 }
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             }
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> 
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>             scanner.close();
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>             System.err.println(<span class="jxr_string">"Error al cargar posiciones: "</span> + e.getMessage());
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>             generateRandomPositions(graph, positions);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         }
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         <strong class="jxr_keyword">return</strong> positions;
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>     }
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> <em class="jxr_javadoccomment">     * Genera posiciones aleatorias para los vértices en caso de que el archivo de posiciones no exista o sea inválido.</em>
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> <em class="jxr_javadoccomment">     * @param Graph graph</em>
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> <em class="jxr_javadoccomment">     * @param Map&lt;Vertex, double[]&gt; positions</em>
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> generateRandomPositions(<a name="Graph" href="../../../ual/eda2/practica02/Graph.html#Graph">Graph</a> graph, Map&lt;Vertex, <strong class="jxr_keyword">double</strong>[]&gt; positions) {
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>         Random random = <strong class="jxr_keyword">new</strong> Random(42); <em class="jxr_comment">// Semilla fija para reproducibilidad</em>
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>         <strong class="jxr_keyword">for</strong> (<a name="Vertex" href="../../../ual/eda2/practica02/Vertex.html#Vertex">Vertex</a> v : graph.getVertices()) {
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>             <strong class="jxr_keyword">double</strong> x = random.nextDouble() * 1000;
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>             <strong class="jxr_keyword">double</strong> y = random.nextDouble() * 1000;
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>             positions.put(v, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[]{x, y});
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         }
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     }
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> }
+</pre>
+<hr/>
+<div id="footer">© 2026</div>
+</body>
+</html>

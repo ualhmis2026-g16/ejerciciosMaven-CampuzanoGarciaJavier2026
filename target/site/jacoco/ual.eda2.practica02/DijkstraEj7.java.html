@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DijkstraEj7.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">DijkstraEj7.java</span></div><h1>DijkstraEj7.java</h1><pre class="source lang-java linenums">package ual.eda2.practica02;
+
+import java.util.PriorityQueue;
+import java.util.TreeMap;
+
+<span class="nc" id="L6">public class DijkstraEj7 {</span>
+
+	/**
+     * Clase interna para representar un elemento en la cola de prioridad
+     * Cada elemento contiene el vértice destino (to), la distancia y el vértice origen (from)
+     */
+    private static class VertexTriple implements Comparable&lt;VertexTriple&gt; {
+        Vertex to;       // Vértice destino
+        double distance; // Distancia acumulada hasta este vértice
+        Vertex from;     // Vértice origen (predecesor)
+        
+<span class="fc" id="L17">        public VertexTriple(Vertex to, double distance, Vertex from) {</span>
+<span class="fc" id="L18">            this.to = to;</span>
+<span class="fc" id="L19">            this.distance = distance;</span>
+<span class="fc" id="L20">            this.from = from;</span>
+<span class="fc" id="L21">        }</span>
+        
+        @Override
+        public int compareTo(VertexTriple other) {
+<span class="fc" id="L25">            return Double.compare(this.distance, other.distance);</span>
+        }
+    }
+    
+    /**
+     * Versión del algoritmo de Dijkstra usando Best-First Search
+     * No utiliza una estructura para almacenar vértices visitados
+     * @param G Grafo con los vértices y aristas
+     * @param fuente Vértice inicial
+     * @return Mapa con distancias y predecesores
+     */
+    public static TreeMap&lt;String, Object&gt; Dijkstra(Graph G, Vertex fuente) {
+        // Variables para medir rendimiento
+<span class="fc" id="L38">        long startTime = System.nanoTime();</span>
+<span class="fc" id="L39">        int iteraciones = 0;</span>
+<span class="fc" id="L40">        int actualizaciones = 0;</span>
+<span class="fc" id="L41">        int verticesProcesados = 0;</span>
+<span class="fc" id="L42">        int aristasProcesadas = 0;</span>
+        
+        // Estructuras de datos
+<span class="fc" id="L45">        TreeMap&lt;Vertex, Double&gt; dist = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L46">        TreeMap&lt;Vertex, Vertex&gt; pred = new TreeMap&lt;&gt;();</span>
+        
+        // Cola de prioridad organizada por distancia mínima con tripletas &lt;to, distance, from&gt;
+<span class="fc" id="L49">        PriorityQueue&lt;VertexTriple&gt; pq = new PriorityQueue&lt;&gt;();</span>
+        
+        // Inicializar distancias
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        for (Vertex v : G.getVertices()) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (v.equals(fuente)) {</span>
+<span class="fc" id="L54">                dist.put(v, Double.POSITIVE_INFINITY); // Distancia a la fuente es infinito</span>
+            } else {
+<span class="fc" id="L56">                dist.put(v, Double.NEGATIVE_INFINITY);</span>
+            }
+<span class="fc" id="L58">            pred.put(v, null);</span>
+<span class="fc" id="L59">        }</span>
+        
+        // Añadir el vértice fuente a la cola
+<span class="fc" id="L62">        pq.add(new VertexTriple(fuente, Double.POSITIVE_INFINITY, null));</span>
+        
+        // Mientras la cola de prioridad no esté vacía
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        while (!pq.isEmpty()) {</span>
+<span class="fc" id="L66">            iteraciones++;</span>
+            
+            // Extraer la tripleta con menor distancia
+<span class="fc" id="L69">            VertexTriple triple = pq.poll();</span>
+<span class="fc" id="L70">            Vertex to = triple.to;</span>
+<span class="fc" id="L71">            double ancho = triple.distance;</span>
+<span class="fc" id="L72">            Vertex from = triple.from;</span>
+            
+            // Si la distancia en la cola es mayor que la registrada, ignorar este camino
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">            if (ancho &lt; dist.get(to)) {</span>
+<span class="nc" id="L76">                continue;</span>
+            }
+            
+<span class="fc bfc" id="L79" title="All 2 branches covered.">            if(from!=null) {</span>
+<span class="fc" id="L80">            	pred.put(to, from);</span>
+            }
+            
+<span class="fc" id="L83">            verticesProcesados++;</span>
+            
+            // Para cada vértice adyacente
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            for (Vertex neighbor : G.getVertices()) {</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">                if (G.adyacentes(to, neighbor)) {</span>
+<span class="fc" id="L88">                    aristasProcesadas++;</span>
+                    
+                    // Calcular nueva distancia
+<span class="fc" id="L91">                    double weight = G.weight(to, neighbor);</span>
+<span class="fc" id="L92">                    double nuevaCapacidad = Math.min(dist.get(to), weight);</span>
+                    
+                    // Verificar si hay un camino más corto
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                    if (nuevaCapacidad &gt; dist.get(neighbor)) {</span>
+                        // Actualizar distancia
+<span class="fc" id="L97">                        dist.put(neighbor, nuevaCapacidad);</span>
+                        
+                        // Añadir a la cola con la nueva distancia y el vértice origen
+<span class="fc" id="L100">                        pq.add(new VertexTriple(neighbor, nuevaCapacidad, to));</span>
+                        
+<span class="fc" id="L102">                        actualizaciones++;</span>
+                    }
+                }
+<span class="fc" id="L105">            }</span>
+<span class="fc" id="L106">        }</span>
+        
+        // Calcular estadísticas
+<span class="fc" id="L109">        long endTime = System.nanoTime();</span>
+<span class="fc" id="L110">        long duration = endTime - startTime;</span>
+        
+        // Prepara resultado
+<span class="fc" id="L113">        TreeMap&lt;String, Object&gt; result = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L114">        result.put(&quot;dist&quot;, dist);</span>
+<span class="fc" id="L115">        result.put(&quot;pred&quot;, pred);</span>
+<span class="fc" id="L116">        result.put(&quot;tiempo_ejecucion_ns&quot;, duration);</span>
+<span class="fc" id="L117">        result.put(&quot;iteraciones&quot;, iteraciones);</span>
+<span class="fc" id="L118">        result.put(&quot;actualizaciones&quot;, actualizaciones);</span>
+<span class="fc" id="L119">        result.put(&quot;vertices_procesados&quot;, verticesProcesados);</span>
+<span class="fc" id="L120">        result.put(&quot;aristas_procesadas&quot;, aristasProcesadas);</span>
+        
+<span class="fc" id="L122">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

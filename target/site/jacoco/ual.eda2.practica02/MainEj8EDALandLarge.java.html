@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainEj8EDALandLarge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">MainEj8EDALandLarge.java</span></div><h1>MainEj8EDALandLarge.java</h1><pre class="source lang-java linenums">package ual.eda2.practica02;
+
+import java.io.*;
+import java.util.*;
+
+<span class="nc" id="L6">public class MainEj8EDALandLarge {</span>
+	/**
+	 * metodo main que se encarga de realizar la ejecucion de DijkstraEj8
+	 * con el fichero graphEDAlandLarge
+	 * @param Strin[] args
+	 */
+    public static void main(String[] args) {
+<span class="nc" id="L13">        Graph graph = new Graph();</span>
+<span class="nc" id="L14">        Map&lt;String, Vertex&gt; vertexMap = new HashMap&lt;&gt;();</span>
+
+        // Directorio de entrada
+<span class="nc" id="L17">        String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+                &quot;src&quot; + File.separator +
+                &quot;main&quot; + File.separator +
+                &quot;java&quot; + File.separator +
+                &quot;ual&quot; + File.separator +
+                &quot;eda2&quot; + File.separator +
+                &quot;practica02&quot; + File.separator;
+
+<span class="nc" id="L25">        String filename = directorioEntrada + &quot;graphEDAlandLarge.txt&quot;;</span>
+
+        // Leer archivo de grafo y construirlo
+<span class="nc" id="L28">        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {</span>
+            String line;
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            while ((line = br.readLine()) != null) {</span>
+<span class="nc bnc" id="L31" title="All 4 branches missed.">                if (line.startsWith(&quot;#&quot;) || line.trim().isEmpty()) continue;</span>
+
+<span class="nc" id="L33">                String[] parts = line.trim().split(&quot;\\s+&quot;);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                if (parts.length &lt; 3) continue;</span>
+
+<span class="nc" id="L36">                String fromId = parts[0];</span>
+<span class="nc" id="L37">                String toId = parts[1];</span>
+<span class="nc" id="L38">                double weight = Double.parseDouble(parts[2]);</span>
+
+<span class="nc" id="L40">                Vertex from = vertexMap.computeIfAbsent(fromId, Vertex::new);</span>
+<span class="nc" id="L41">                Vertex to = vertexMap.computeIfAbsent(toId, Vertex::new);</span>
+
+<span class="nc" id="L43">                graph.addEdge(from, to, weight);</span>
+<span class="nc" id="L44">            }</span>
+<span class="nc" id="L45">        } catch (IOException e) {</span>
+<span class="nc" id="L46">            System.err.println(&quot;Error leyendo el archivo del grafo: &quot; + e.getMessage());</span>
+<span class="nc" id="L47">            return;</span>
+<span class="nc" id="L48">        }</span>
+
+        // Solicitar al usuario un vértice de origen, destino y opcionalmente un intermedio
+<span class="nc" id="L51">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L52">        System.out.print(&quot;Introduce el ID del vértice de origen: &quot;);</span>
+<span class="nc" id="L53">        String origenId = scanner.nextLine().trim();</span>
+
+<span class="nc" id="L55">        System.out.print(&quot;Introduce el ID del vértice de destino: &quot;);</span>
+<span class="nc" id="L56">        String destinoId = scanner.nextLine().trim();</span>
+
+<span class="nc" id="L58">        System.out.print(&quot;Introduce el ID del vértice intermedio (opcional, presiona Enter para omitir): &quot;);</span>
+<span class="nc" id="L59">        String intermedioId = scanner.nextLine().trim();</span>
+
+        // Verificar si el vértice de origen y destino existen
+<span class="nc" id="L62">        Vertex source = vertexMap.get(origenId);</span>
+<span class="nc" id="L63">        Vertex destination = vertexMap.get(destinoId);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        Vertex intermedio = intermedioId.isEmpty() ? null : vertexMap.get(intermedioId);</span>
+
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (source == null) {</span>
+<span class="nc" id="L67">            System.err.println(&quot;El vértice de origen no existe en el grafo.&quot;);</span>
+<span class="nc" id="L68">            return;</span>
+        }
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if (destination == null) {</span>
+<span class="nc" id="L71">            System.err.println(&quot;El vértice de destino no existe en el grafo.&quot;);</span>
+<span class="nc" id="L72">            return;</span>
+        }
+<span class="nc bnc" id="L74" title="All 4 branches missed.">        if (intermedioId != null &amp;&amp; intermedio == null) {</span>
+<span class="nc" id="L75">            System.err.println(&quot;El vértice intermedio no existe en el grafo.&quot;);</span>
+<span class="nc" id="L76">            return;</span>
+        }
+
+        // Ejecutar el algoritmo de DijkstraEj8
+        TreeMap&lt;String, Object&gt; results;
+<span class="nc" id="L81">        double distanciaTotal = 0.0;</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (intermedio != null) {</span>
+<span class="nc" id="L83">            System.out.println(&quot;\nCalculando camino mínimo desde &quot; + source.getId() + &quot; pasando por &quot; + intermedio.getId() + &quot; hasta &quot; + destination.getId() + &quot;...\n&quot;);</span>
+<span class="nc" id="L84">            results = DijkstraEj8.DijkstraIntermedio(graph, source, intermedio, destination);</span>
+
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L87">            TreeMap&lt;Vertex, Double&gt; distFuente = (TreeMap&lt;Vertex, Double&gt;) results.get(&quot;distFuente&quot;);</span>
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L89">            TreeMap&lt;Vertex, Double&gt; distIntermedio = (TreeMap&lt;Vertex, Double&gt;) results.get(&quot;distIntermedio&quot;);</span>
+
+            // Verificar que ambos tramos tienen un camino válido
+<span class="nc bnc" id="L92" title="All 4 branches missed.">            if (distFuente.get(intermedio) == Double.POSITIVE_INFINITY || distIntermedio.get(destination) == Double.POSITIVE_INFINITY) {</span>
+<span class="nc" id="L93">                System.out.println(&quot;No existe un camino desde &quot; + source.getId() + &quot; hasta &quot; + destination.getId() + &quot; pasando por &quot; + intermedio.getId());</span>
+<span class="nc" id="L94">                return;</span>
+            }
+
+            // Calcular la distancia total
+<span class="nc" id="L98">            distanciaTotal = distFuente.get(intermedio) + distIntermedio.get(destination);</span>
+<span class="nc" id="L99">        } else {</span>
+<span class="nc" id="L100">            System.out.println(&quot;\nCalculando camino mínimo desde &quot; + source.getId() + &quot; hasta &quot; + destination.getId() + &quot;...\n&quot;);</span>
+<span class="nc" id="L101">            results = DijkstraEj8.Dijkstra(graph, source);</span>
+
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L104">            TreeMap&lt;Vertex, Double&gt; dist = (TreeMap&lt;Vertex, Double&gt;) results.get(&quot;dist&quot;);</span>
+
+            // Obtener la distancia al destino
+<span class="nc" id="L107">            distanciaTotal = dist.get(destination);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (distanciaTotal == Double.POSITIVE_INFINITY) {</span>
+<span class="nc" id="L109">                System.out.println(&quot;No existe un camino desde &quot; + source.getId() + &quot; hasta &quot; + destination.getId());</span>
+<span class="nc" id="L110">                return;</span>
+            }
+        }
+
+        // Reconstruir el camino completo
+<span class="nc" id="L115">        List&lt;Vertex&gt; path = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        if (intermedio != null) {</span>
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L118">            TreeMap&lt;Vertex, Vertex&gt; predFuente = (TreeMap&lt;Vertex, Vertex&gt;) results.get(&quot;predFuente&quot;);</span>
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L120">            TreeMap&lt;Vertex, Vertex&gt; predIntermedio = (TreeMap&lt;Vertex, Vertex&gt;) results.get(&quot;predIntermedio&quot;);</span>
+
+<span class="nc" id="L122">            path.addAll(reconstructPath(predFuente, source, intermedio));</span>
+<span class="nc" id="L123">            path.remove(path.size() - 1); // Evitar duplicar el nodo intermedio</span>
+<span class="nc" id="L124">            path.addAll(reconstructPath(predIntermedio, intermedio, destination));</span>
+<span class="nc" id="L125">        } else {</span>
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L127">            TreeMap&lt;Vertex, Vertex&gt; pred = (TreeMap&lt;Vertex, Vertex&gt;) results.get(&quot;pred&quot;);</span>
+<span class="nc" id="L128">            path = reconstructPath(pred, source, destination);</span>
+        }
+
+        // Mostrar resultados
+<span class="nc" id="L132">        System.out.println(&quot;Camino mínimo encontrado:&quot;);</span>
+<span class="nc" id="L133">        System.out.printf(&quot;Distancia total: %.2f\n&quot;, distanciaTotal);</span>
+<span class="nc" id="L134">        System.out.print(&quot;Ruta: &quot;);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        for (int i = 0; i &lt; path.size(); i++) {</span>
+<span class="nc" id="L136">            System.out.print(path.get(i).getId());</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">            if (i &lt; path.size() - 1) {</span>
+<span class="nc" id="L138">                System.out.print(&quot; -&gt; &quot;);</span>
+            }
+        }
+<span class="nc" id="L141">        System.out.println();</span>
+
+        // Mostrar estadísticas
+<span class="nc" id="L144">        long tiempoEjecucion = (long) results.get(&quot;tiempo_ejecucion_ns&quot;);</span>
+<span class="nc" id="L145">        int iteraciones = (int) results.get(&quot;iteraciones&quot;);</span>
+<span class="nc" id="L146">        int actualizaciones = (int) results.get(&quot;actualizaciones&quot;);</span>
+<span class="nc" id="L147">        int verticesProcesados = (int) results.get(&quot;vertices_procesados&quot;);</span>
+<span class="nc" id="L148">        int aristasProcesadas = (int) results.get(&quot;aristas_procesadas&quot;);</span>
+
+<span class="nc" id="L150">        System.out.println(&quot;\nEstadísticas de ejecución:&quot;);</span>
+<span class="nc" id="L151">        System.out.printf(&quot;Tiempo de ejecución: %d ns\n&quot;, tiempoEjecucion);</span>
+<span class="nc" id="L152">        System.out.printf(&quot;Iteraciones: %d\n&quot;, iteraciones);</span>
+<span class="nc" id="L153">        System.out.printf(&quot;Actualizaciones de distancia: %d\n&quot;, actualizaciones);</span>
+<span class="nc" id="L154">        System.out.println(&quot;Vértices procesados: &quot; + verticesProcesados);</span>
+<span class="nc" id="L155">        System.out.println(&quot;Aristas procesadas: &quot; + aristasProcesadas);</span>
+
+<span class="nc" id="L157">        scanner.close();</span>
+<span class="nc" id="L158">    }</span>
+
+    /**
+     * Reconstruye el camino desde el origen hasta el destino
+     * utilizando el mapa de predecesores.
+     *
+     * @param pred        Mapa de predecesores para cada vértice.
+     * @param source      Vértice de origen.
+     * @param destination Vértice de destino.
+     * @return Lista de vértices que forman el camino.
+     */
+    private static List&lt;Vertex&gt; reconstructPath(TreeMap&lt;Vertex, Vertex&gt; pred, Vertex source, Vertex destination) {
+<span class="nc" id="L170">        List&lt;Vertex&gt; path = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L171">        Vertex current = destination;</span>
+
+        // Verificar si el destino es alcanzable
+<span class="nc bnc" id="L174" title="All 4 branches missed.">        while (current != null &amp;&amp; current != source) {</span>
+<span class="nc" id="L175">            path.add(0, current);</span>
+<span class="nc" id="L176">            current = pred.get(current);</span>
+        }
+
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        if (current == source) {</span>
+<span class="nc" id="L180">            path.add(0, source);</span>
+        }
+
+<span class="nc" id="L183">        return path;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

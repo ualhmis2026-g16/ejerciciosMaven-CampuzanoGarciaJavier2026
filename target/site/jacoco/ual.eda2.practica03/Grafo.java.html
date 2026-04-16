@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Grafo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">Grafo.java</span></div><h1>Grafo.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.util.Map.Entry;
+
+
+import java.util.*;
+
+public class Grafo {
+	 private TreeMap&lt;Vertex, TreeMap&lt;Vertex, Double&gt;&gt; adjacencyMap;
+	 private ArrayList&lt;Vertex&gt; vertexList;
+	 private int numAristas;
+	    
+	    /**
+	     * Constructor por defecto
+	     */
+<span class="fc" id="L16">	    public Grafo() {</span>
+<span class="fc" id="L17">	        this.adjacencyMap = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L18">	        vertexList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L19">	    }</span>
+	    
+	    /**
+	     * Metodo que anade un vertice al grafo
+	     * @param v
+	     */
+	    public void addVertex(Vertex v) {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">	        if (!adjacencyMap.containsKey(v))</span>
+<span class="fc" id="L27">	            adjacencyMap.put(v, new TreeMap&lt;&gt;());</span>
+	        
+<span class="fc bfc" id="L29" title="All 2 branches covered.">	        if(!vertexList.contains(v)) {</span>
+<span class="fc" id="L30">	        	vertexList.add(v);</span>
+<span class="fc" id="L31">	        	vertexList.sort(null);</span>
+	        }
+	        
+<span class="fc" id="L34">	    }</span>
+	    
+	    
+	    public double[][] mapaAMatriz() {
+<span class="nc" id="L38">	        int n = vertexList.size();</span>
+<span class="nc" id="L39">	        double[][] result = new double[n][n];</span>
+	        
+	        // Inicializar la matriz con valores infinitos
+<span class="nc bnc" id="L42" title="All 2 branches missed.">	        for (int i = 0; i &lt; n; i++) {</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">	            for (int j = 0; j &lt; n; j++) {</span>
+<span class="nc" id="L44">	                result[i][j] = Double.POSITIVE_INFINITY;</span>
+	            }
+	        }
+	        
+	        // Rellenar la matriz usando vertexList para mantener el orden consistente
+<span class="nc bnc" id="L49" title="All 2 branches missed.">	        for (int i = 0; i &lt; n; i++) {</span>
+<span class="nc" id="L50">	            Vertex origen = vertexList.get(i);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">	            for (int j = 0; j &lt; n; j++) {</span>
+<span class="nc" id="L52">	                Vertex destino = vertexList.get(j);</span>
+<span class="nc" id="L53">	                TreeMap&lt;Vertex, Double&gt; aux = adjacencyMap.get(origen);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">	                if (aux !=null) {</span>
+<span class="nc" id="L55">		                Double aux2 = aux.get(destino);</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		                if(aux2!=null)</span>
+<span class="nc" id="L57">		                	result[i][j] = adjacencyMap.get(origen).get(destino);</span>
+	                }
+	            }
+	        }
+	        
+<span class="nc" id="L62">	        return result;</span>
+	    }
+	    
+	    /**
+	     * Metodo que anade una arista entre dos vertices
+	     * @param source
+	     * @param destination
+	     * @param weight
+	     */
+	    public void addEdge(Vertex source, Vertex destination, double weight) {
+	        // Add vertices if they don't exist
+<span class="fc" id="L73">	        addVertex(source);</span>
+<span class="fc" id="L74">	        addVertex(destination);</span>
+<span class="pc bpc" id="L75" title="1 of 4 branches missed.">	        if(!adjacencyMap.get(destination).containsKey(source) &amp;&amp; !adjacencyMap.get(source).containsKey(destination))</span>
+<span class="fc" id="L76">	        	numAristas++;</span>
+	        // Add the edge with weight
+<span class="fc" id="L78">	        adjacencyMap.get(source).put(destination, weight);</span>
+<span class="fc" id="L79">	        adjacencyMap.get(destination).put(source, weight);</span>
+	        
+<span class="fc" id="L81">	    }</span>
+	    
+	    /**
+	     * Metodo que devuelve todos los vertices del grafo
+	     * @return Collection&lt;Vertex&gt;
+	     */
+	    public Collection&lt;Vertex&gt; getVertices() {
+<span class="fc" id="L88">	        return vertexList;</span>
+	    }
+	    
+	    /**
+	     * Metodo que verifica si dos vertices son adyacentes
+	     * @param Vertex v1
+	     * @param Vertex v2
+	     * @return boolean adyacentes
+	     */
+	    public boolean adyacentes(Vertex v1, Vertex v2) {
+<span class="fc" id="L98">	    	TreeMap&lt;Vertex, Double&gt; aux = adjacencyMap.get(v1);</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">	        if (aux==null) {</span>
+<span class="nc" id="L100">	            return false;</span>
+	        }
+<span class="fc" id="L102">	        Double aux2 = aux.get(v2);</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">	        return aux2!=null;</span>
+	    }
+	    
+	    /**
+	     * Metodo que devuelve el peso entre dos vertices
+	     * @param Vertex v1
+	     * @param Vertex v2
+	     * @return double peso
+	     */
+	    public double peso(Vertex v1, Vertex v2) {
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">	        if (!adyacentes(v1, v2)) {</span>
+<span class="nc" id="L114">	            return Double.POSITIVE_INFINITY;</span>
+	        }
+<span class="fc" id="L116">	        return adjacencyMap.get(v1).get(v2);</span>
+	    }
+	    
+	    /**
+	     * Metodo que devuelve el peso entre dos vertices
+	     * @param Vertex v1
+	     * @param Vertex v2
+	     * @return double
+	     */
+	    public double weight(Vertex v1, Vertex v2) {
+<span class="nc" id="L126">	        return peso(v1, v2);</span>
+	    }
+	    
+	    /**
+	     * Metodo para imprimir el grafo.
+	     */
+	    public void printGraph() {
+<span class="nc bnc" id="L133" title="All 2 branches missed.">	        for (Vertex v : adjacencyMap.keySet()) {</span>
+<span class="nc" id="L134">	            System.out.print(&quot;Vertex &quot; + v + &quot; connects to: &quot;);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">	            for (Map.Entry&lt;Vertex, Double&gt; neighbor : adjacencyMap.get(v).entrySet()) {</span>
+<span class="nc" id="L136">	                System.out.print(neighbor.getKey() + &quot; (weight: &quot; + neighbor.getValue() + &quot;) &quot;);</span>
+<span class="nc" id="L137">	            }</span>
+<span class="nc" id="L138">	            System.out.println();</span>
+<span class="nc" id="L139">	        }</span>
+<span class="nc" id="L140">	    }</span>
+
+		public int getVertexIndex(Vertex v) {
+<span class="nc" id="L143">			return vertexList.indexOf(v);</span>
+		}
+		
+		/**
+	     * Metodo que devuelve el número de vértices del grafo
+	     * @return int tamaño
+	     */
+	    public int size() {
+<span class="fc" id="L151">	    	return vertexList.size();</span>
+	    }
+		
+	    /**
+	     * Metodo que devuelve una lista de vértices, basándose en un array de índices pasados por parámetro
+	     * @param array el array de índices
+	     * @return List&lt;Vertex&gt;
+	     */
+		public List&lt;Vertex&gt; obtenerListaVertices(Integer[] array) {
+<span class="nc" id="L160">			ArrayList&lt;Vertex&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			for(Integer i : array) {</span>
+<span class="nc" id="L162">				result.add(vertexList.get(i));</span>
+			}
+<span class="nc" id="L164">			return result;</span>
+		}
+		
+		public List&lt;Vertex&gt; getVecinos(Vertex v1){
+<span class="fc" id="L168">			List&lt;Vertex&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">			for(Vertex v2 : vertexList)</span>
+<span class="fc bfc" id="L170" title="All 4 branches covered.">				if(v1!=v2 &amp;&amp; adyacentes(v1, v2))</span>
+<span class="fc" id="L171">					result.add(v2);</span>
+<span class="fc" id="L172">			return result;</span>
+		}
+
+		public int getNumAristas() {
+<span class="nc" id="L176">			return numAristas;</span>
+		}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

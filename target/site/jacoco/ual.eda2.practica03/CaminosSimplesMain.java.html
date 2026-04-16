@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CaminosSimplesMain.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica03</a> &gt; <span class="el_source">CaminosSimplesMain.java</span></div><h1>CaminosSimplesMain.java</h1><pre class="source lang-java linenums">package ual.eda2.practica03;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+<span class="nc" id="L16">public class CaminosSimplesMain {</span>
+
+	/**
+     * Reads a graph from a text file.
+     * 
+     * @param filePath The path to the text file
+     * @return A Graph object constructed from the file data
+     * @throws IOException If an I/O error occurs
+     */
+	  public static Graph readGraphFromFile(String filePath) throws IOException {
+<span class="nc" id="L26">	        Graph graph = new Graph();</span>
+<span class="nc" id="L27">	        Map&lt;String, Vertex&gt; verticesMap = new HashMap&lt;&gt;();</span>
+	        
+<span class="nc" id="L29">	        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+	            String line;
+<span class="nc bnc" id="L31" title="All 2 branches missed.">	            while ((line = reader.readLine()) != null) {</span>
+<span class="nc" id="L32">	                line = line.trim();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">	                if (line.isEmpty()) continue;</span>
+	                
+<span class="nc" id="L35">	                String[] parts = line.split(&quot;\\s+&quot;);</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">	                if (parts.length == 3) {</span>
+<span class="nc" id="L37">	                    String sourceId = parts[0];</span>
+<span class="nc" id="L38">	                    String destId = parts[1];</span>
+<span class="nc" id="L39">	                    double distance = Double.parseDouble(parts[2]);</span>
+	                    
+	                    // Get or create vertices
+<span class="nc" id="L42">	                    Vertex source = getOrCreateVertex(verticesMap, graph, sourceId);</span>
+<span class="nc" id="L43">	                    Vertex dest = getOrCreateVertex(verticesMap, graph, destId);</span>
+	                    
+	                    // Add the edge to the graph (assuming undirected graph)
+<span class="nc" id="L46">	                    graph.addEdge(source, dest, distance);</span>
+<span class="nc" id="L47">	                    graph.addEdge(dest, source, distance); // Remove this line if it's a directed graph</span>
+	                }
+<span class="nc" id="L49">	            }</span>
+	        }
+	        
+<span class="nc" id="L52">	        return graph;</span>
+	    }
+	    
+	    /**
+	     * Helper method to get an existing vertex or create a new one if needed
+	     * @param Map&lt;String, Vertex&gt; verticesMap
+	     * @param Graph graph
+	     * @param String id
+	     * @return Vertex
+	     */
+	    private static Vertex getOrCreateVertex(Map&lt;String, Vertex&gt; verticesMap, Graph graph, String id) {
+<span class="nc" id="L63">	        Vertex vertex = verticesMap.get(id);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">	        if (vertex == null) {</span>
+<span class="nc" id="L65">	            vertex = new Vertex(id);</span>
+<span class="nc" id="L66">	            verticesMap.put(id, vertex);</span>
+<span class="nc" id="L67">	            graph.addVertex(vertex);</span>
+	        }
+<span class="nc" id="L69">	        return vertex;</span>
+	    }
+	   
+	    /**
+	     * Método principal para probar el algoritmo
+	     */
+	    public static void main(String[] args) {
+	        try {
+<span class="nc" id="L77">	        	String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+	                    &quot;src&quot; + File.separator +
+	                    &quot;main&quot; + File.separator +
+	                    &quot;java&quot; + File.separator +
+	                    &quot;ual&quot; + File.separator +
+	                    &quot;eda2&quot; + File.separator +
+	                    &quot;practica03&quot; + File.separator;
+	            
+	            // Cargar el grafo
+<span class="nc" id="L86">	            Graph cityGraph = readGraphFromFile(directorioEntrada + &quot;graphTSP01.txt&quot;);</span>
+<span class="nc" id="L87">	            System.out.println(&quot;Grafo cargado exitosamente.&quot;);</span>
+	            
+	            
+	            // Test Dijkstra's algorithm on the loaded graph
+<span class="nc" id="L91">	            Vertex source = new Vertex(&quot;Almeria&quot;);</span>
+	            
+<span class="nc bnc" id="L93" title="All 2 branches missed.">	            if (source != null) {</span>
+<span class="nc" id="L94">	                System.out.println(&quot;\nAlgoritmo de caminos simples desde &quot; + source + &quot;: &quot;);</span>
+<span class="nc" id="L95">	                Map&lt;ArrayList&lt;Vertex&gt;, Double&gt; result = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L96">	                long tiempoTotal =0;</span>
+					try {
+<span class="nc" id="L98">						long timeInicio = System.currentTimeMillis();</span>
+<span class="nc" id="L99">						result = CaminosSimples.buscarCaminosSimples(cityGraph, source);</span>
+<span class="nc" id="L100">						long tiempoFinal = System.currentTimeMillis();</span>
+<span class="nc" id="L101">						tiempoTotal = tiempoFinal - timeInicio;</span>
+<span class="nc" id="L102">					} catch (Exception e) {</span>
+						// TODO Auto-generated catch block
+<span class="nc" id="L104">						e.printStackTrace();</span>
+<span class="nc" id="L105">					} //Aqui va el algoritmo de caminos simples</span>
+<span class="nc" id="L106">					int totalCircuitos =0;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">					for(Entry&lt;ArrayList&lt;Vertex&gt;, Double&gt; arr : result.entrySet()) {</span>
+<span class="nc" id="L108">		                System.out.println(&quot;Camino &quot; + totalCircuitos + &quot;: &quot; + arr.getKey().toString());</span>
+<span class="nc" id="L109">		                System.out.println(&quot;Peso: &quot; + arr.getValue());</span>
+<span class="nc" id="L110">		                System.out.println();</span>
+<span class="nc" id="L111">		                totalCircuitos++;</span>
+<span class="nc" id="L112">					}</span>
+<span class="nc" id="L113">					System.out.println(&quot;Tiempo total de ejecución: &quot; + tiempoTotal);</span>
+					
+<span class="nc" id="L115">					System.out.println(&quot;Total de circuitos encontrados: &quot; + totalCircuitos);</span>
+
+	            }
+	            
+<span class="nc" id="L119">	        } catch (IOException e) {</span>
+<span class="nc" id="L120">	            System.err.println(&quot;Error reading graph file: &quot; + e.getMessage());</span>
+<span class="nc" id="L121">	        }</span>
+<span class="nc" id="L122">	    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

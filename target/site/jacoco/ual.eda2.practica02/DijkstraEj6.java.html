@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DijkstraEj6.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">DijkstraEj6.java</span></div><h1>DijkstraEj6.java</h1><pre class="source lang-java linenums">package ual.eda2.practica02;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.TreeMap;
+
+<span class="nc" id="L8">public class DijkstraEj6 {</span>
+
+
+    /**
+     * Clase interna para representar un elemento en la cola de prioridad para A*
+     * Cada elemento contiene el vértice destino (to), los valores g, h, f y el vértice origen (from)
+     */
+    private static class VertexAStar implements Comparable&lt;VertexAStar&gt; {
+        Vertex to;       // Vértice destino
+        double g;        // Coste real desde el origen (distancia acumulada)
+        double h;        // Valor heurístico (distancia estimada al destino)
+        double f;        // Valor f = g + h (coste total estimado)
+        Vertex from;     // Vértice origen (predecesor)
+        
+<span class="fc" id="L22">        public VertexAStar(Vertex to, double g, double h, Vertex from) {</span>
+<span class="fc" id="L23">            this.to = to;</span>
+<span class="fc" id="L24">            this.g = g;</span>
+<span class="fc" id="L25">            this.h = h;</span>
+<span class="fc" id="L26">            this.f = g + h;</span>
+<span class="fc" id="L27">            this.from = from;</span>
+<span class="fc" id="L28">        }</span>
+        
+        @Override
+        public int compareTo(VertexAStar other) {
+<span class="fc" id="L32">            return Double.compare(this.f, other.f);</span>
+        }
+    }
+    
+    /**
+     * Función heurística - Distancia Euclídea
+     * @param from Vértice actual
+     * @param destination Vértice destino final
+     * @param positions Mapa con las coordenadas de los vértices
+     * @return Valor heurístico (distancia estimada)
+     */
+    private static double heuristic(Vertex from, Vertex destination, Map&lt;Vertex, double[]&gt; positions) {
+        // Si no hay posiciones disponibles, devolver 0 (sin heurística)
+<span class="pc bpc" id="L45" title="3 of 6 branches missed.">        if (positions == null || !positions.containsKey(from) || !positions.containsKey(destination)) {</span>
+<span class="nc" id="L46">            return 0;</span>
+        }
+        
+<span class="fc" id="L49">        double[] posFrom = positions.get(from);</span>
+<span class="fc" id="L50">        double[] posTo = positions.get(destination);</span>
+        
+        // Calcular distancia euclídea
+<span class="fc" id="L53">        double dx = posFrom[0] - posTo[0];</span>
+<span class="fc" id="L54">        double dy = posFrom[1] - posTo[1];</span>
+        
+<span class="fc" id="L56">        return Math.sqrt(dx*dx + dy*dy);</span>
+    }
+    
+    /**
+     * Versión del algoritmo A* basado en Best-First Search de Dijkstra
+     * No utiliza listas abierta y cerrada explícitas
+     * @param G Grafo con los vértices y aristas
+     * @param source Vértice inicial
+     * @param destination Vértice destino
+     * @param positions Mapa con las coordenadas de los vértices
+     * @return Mapa con resultados y estadísticas
+     */
+    public static TreeMap&lt;String, Object&gt; findPath(Graph G, Vertex source, Vertex destination, 
+                                                 Map&lt;Vertex, double[]&gt; positions) {
+        // Variables para medir rendimiento
+<span class="fc" id="L71">        long startTime = System.nanoTime();</span>
+<span class="fc" id="L72">        int iteraciones = 0;</span>
+<span class="fc" id="L73">        int actualizaciones = 0;</span>
+<span class="fc" id="L74">        int verticesProcesados = 0;</span>
+<span class="fc" id="L75">        int aristasProcesadas = 0;</span>
+        
+        // Estructuras de datos
+<span class="fc" id="L78">        TreeMap&lt;Vertex, Double&gt; gValues = new TreeMap&lt;&gt;(); // Costes reales (g)</span>
+<span class="fc" id="L79">        TreeMap&lt;Vertex, Vertex&gt; pred = new TreeMap&lt;&gt;();    // Predecesores</span>
+        
+        // Cola de prioridad organizada por valor f mínimo
+<span class="fc" id="L82">        PriorityQueue&lt;VertexAStar&gt; pq = new PriorityQueue&lt;&gt;();</span>
+        
+        // Inicializar valores g
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        for (Vertex v : G.getVertices()) {</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            if (v.equals(source)) {</span>
+<span class="fc" id="L87">                gValues.put(v, 0.0); // Distancia al origen es 0</span>
+            } else {
+<span class="fc" id="L89">                gValues.put(v, Double.POSITIVE_INFINITY);</span>
+<span class="fc" id="L90">                pred.put(v, null);</span>
+            }
+<span class="fc" id="L92">        }</span>
+        
+        // Añadir el vértice origen a la cola
+<span class="fc" id="L95">        double h0 = heuristic(source, destination, positions);</span>
+<span class="fc" id="L96">        pq.add(new VertexAStar(source, 0.0, h0, null));</span>
+        
+<span class="fc" id="L98">        boolean pathFound = false;</span>
+        
+        // Mientras la cola de prioridad no esté vacía
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        while (!pq.isEmpty()) {</span>
+<span class="fc" id="L102">            iteraciones++;</span>
+            
+            // Extraer el vértice con menor valor f
+<span class="fc" id="L105">            VertexAStar current = pq.poll();</span>
+<span class="fc" id="L106">            Vertex to = current.to;</span>
+            
+            
+            
+            // Si la g en la cola es mayor que la registrada, ignorar este camino
+            // Esta es la clave para descartar caminos no óptimos sin necesidad de lista cerrada
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (current.g &gt; gValues.get(to)) {</span>
+<span class="fc" id="L113">                continue;</span>
+            }
+            
+            // Si no es el vértice origen, actualizar el predecesor
+<span class="fc bfc" id="L117" title="All 2 branches covered.">            if (!to.equals(source)) {</span>
+<span class="fc" id="L118">                pred.put(to, current.from);</span>
+            }
+        
+            
+<span class="fc" id="L122">            verticesProcesados++;</span>
+            
+            // Para cada vértice adyacente
+<span class="fc bfc" id="L125" title="All 2 branches covered.">            for (Vertex neighbor : G.getVertices()) {</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">                if (G.adyacentes(to, neighbor)) {</span>
+<span class="fc" id="L127">                    aristasProcesadas++;</span>
+                    
+                    // Calcular nuevo valor g
+<span class="fc" id="L130">                    double weight = G.weight(to, neighbor);</span>
+<span class="fc" id="L131">                    double newG = gValues.get(to) + weight;</span>
+                    
+                    // Verificar si hay un camino con menor g (no f)
+<span class="fc bfc" id="L134" title="All 2 branches covered.">                    if (newG &lt; gValues.get(neighbor)) {</span>
+                        // Actualizar valor g
+<span class="fc" id="L136">                        gValues.put(neighbor, newG);</span>
+                        
+                        // Calcular h para este vecino
+<span class="fc" id="L139">                        double h = heuristic(neighbor, destination, positions);</span>
+                        
+                        // Añadir a la cola con los nuevos valores g, h, f
+<span class="fc" id="L142">                        pq.add(new VertexAStar(neighbor, newG, h, to));</span>
+                        
+<span class="fc" id="L144">                        actualizaciones++;</span>
+                    }
+                }
+<span class="fc" id="L147">            }</span>
+         // Si hemos llegado al destino
+<span class="fc bfc" id="L149" title="All 2 branches covered.">            if (to.equals(destination)) {</span>
+<span class="fc" id="L150">                pathFound = true;</span>
+            }
+<span class="fc" id="L152">        }</span>
+        
+        // Reconstruir camino
+<span class="fc" id="L155">        ArrayList&lt;Vertex&gt; path = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">        if (pathFound) {</span>
+<span class="fc" id="L157">            Vertex current = destination;</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">            while (current != null) {</span>
+<span class="fc" id="L159">                path.add(0, current);</span>
+<span class="fc" id="L160">                current = pred.get(current);</span>
+            }
+        }
+        
+        // Calcular estadísticas
+<span class="fc" id="L165">        long endTime = System.nanoTime();</span>
+<span class="fc" id="L166">        long duration = endTime - startTime;</span>
+        
+        // Preparar resultado
+<span class="fc" id="L169">        TreeMap&lt;String, Object&gt; result = new TreeMap&lt;&gt;();</span>
+<span class="fc" id="L170">        result.put(&quot;path&quot;, path);</span>
+<span class="fc" id="L171">        result.put(&quot;distance&quot;, gValues.get(destination));</span>
+<span class="fc" id="L172">        result.put(&quot;pathFound&quot;, pathFound);</span>
+<span class="fc" id="L173">        result.put(&quot;tiempo_ejecucion_ns&quot;, duration);</span>
+<span class="fc" id="L174">        result.put(&quot;iteraciones&quot;, iteraciones);</span>
+<span class="fc" id="L175">        result.put(&quot;actualizaciones&quot;, actualizaciones);</span>
+<span class="fc" id="L176">        result.put(&quot;vertices_procesados&quot;, verticesProcesados);</span>
+<span class="fc" id="L177">        result.put(&quot;aristas_procesadas&quot;, aristasProcesadas);</span>
+        
+<span class="fc" id="L179">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

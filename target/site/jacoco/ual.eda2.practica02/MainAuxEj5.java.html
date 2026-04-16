@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainAuxEj5.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica02</a> &gt; <span class="el_source">MainAuxEj5.java</span></div><h1>MainAuxEj5.java</h1><pre class="source lang-java linenums">package ual.eda2.practica02;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+
+<span class="nc" id="L7">public class MainAuxEj5 {</span>
+
+    /**
+     * Método principal para probar el algoritmo
+     * @param String[] args
+     */
+    public static void main(String[] args) {
+        try {
+<span class="nc" id="L15">            String directorioEntrada = System.getProperty(&quot;user.dir&quot;) + File.separator +</span>
+                    &quot;src&quot; + File.separator +
+                    &quot;main&quot; + File.separator +
+                    &quot;java&quot; + File.separator +
+                    &quot;ual&quot; + File.separator +
+                    &quot;eda2&quot; + File.separator +
+                    &quot;practica02&quot; + File.separator;
+
+            // Cargar el grafo
+<span class="nc" id="L24">            Graph cityGraph = DijkstraMainEj1.readGraphFromFile(directorioEntrada + &quot;graphEDAland.txt&quot;);</span>
+<span class="nc" id="L25">            System.out.println(&quot;Grafo cargado exitosamente.&quot;);</span>
+
+            // Cargar posiciones para la heurística
+<span class="nc" id="L28">            Map&lt;Vertex, double[]&gt; positions = loadPositions(directorioEntrada + &quot;graphEDALandpositions.txt&quot;, cityGraph);</span>
+
+            // Mostrar vértices disponibles
+<span class="nc" id="L31">            System.out.println(&quot;\nVértices disponibles en el grafo:&quot;);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            for (Vertex v : cityGraph.getVertices()) {</span>
+<span class="nc" id="L33">                System.out.print(v.getId() + &quot; &quot;);</span>
+<span class="nc" id="L34">            }</span>
+<span class="nc" id="L35">            System.out.println(&quot;\n&quot;);</span>
+
+            // Crear un mapa para buscar vértices rápidamente por ID
+<span class="nc" id="L38">            Map&lt;String, Vertex&gt; vertexMap = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            for (Vertex v : cityGraph.getVertices()) {</span>
+<span class="nc" id="L40">                vertexMap.put(v.getId(), v);</span>
+<span class="nc" id="L41">            }</span>
+
+            // Obtener origen y destino por entrada de usuario
+<span class="nc" id="L44">            Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L45">            System.out.print(&quot;Introduce vértice origen (ej: Madrid): &quot;);</span>
+<span class="nc" id="L46">            String sourceId = scanner.nextLine().trim();</span>
+
+<span class="nc" id="L48">            System.out.print(&quot;Introduce vértice destino: &quot;);</span>
+<span class="nc" id="L49">            String destId = scanner.nextLine().trim();</span>
+
+            // Buscar vértices origen y destino
+<span class="nc" id="L52">            Vertex source = vertexMap.get(sourceId);</span>
+<span class="nc" id="L53">            Vertex destination = vertexMap.get(destId);</span>
+
+            // Comprobar si se encontraron ambos vértices
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (source == null) {</span>
+<span class="nc" id="L57">                System.out.println(&quot;Vértice origen no encontrado: &quot; + sourceId);</span>
+<span class="nc" id="L58">                return;</span>
+            }
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            if (destination == null) {</span>
+<span class="nc" id="L61">                System.out.println(&quot;Vértice destino no encontrado: &quot; + destId);</span>
+<span class="nc" id="L62">                return;</span>
+            }
+
+            // Ejecutar el algoritmo A*
+<span class="nc" id="L66">            System.out.println(&quot;\nEjecutando algoritmo A* desde &quot; + sourceId + &quot; hasta &quot; + destId + &quot;:&quot;);</span>
+<span class="nc" id="L67">            Map&lt;String, Object&gt; result = DijkstraEj5.findPath(cityGraph, source, destination, positions);</span>
+
+            // Obtener resultados
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L71">            List&lt;Vertex&gt; path = (List&lt;Vertex&gt;) result.get(&quot;path&quot;);</span>
+<span class="nc" id="L72">            double distance = (double) result.get(&quot;distance&quot;);</span>
+<span class="nc" id="L73">            boolean pathFound = (boolean) result.get(&quot;pathFound&quot;);</span>
+
+            // Obtener estadísticas
+<span class="nc" id="L76">            long tiempoEjecucion = (long) result.get(&quot;tiempo_ejecucion_ns&quot;);</span>
+<span class="nc" id="L77">            int nodosEvaluados = (int) result.get(&quot;nodos_evaluados&quot;);</span>
+<span class="nc" id="L78">            int nodosGenerados = (int) result.get(&quot;nodos_generados&quot;);</span>
+
+            // Mostrar estadísticas
+<span class="nc" id="L81">            System.out.println(&quot;\nEstadísticas de ejecución de A*:&quot;);</span>
+<span class="nc" id="L82">            System.out.println(&quot;Tiempo de ejecución: &quot; + tiempoEjecucion + &quot; nanosegundos&quot;);</span>
+<span class="nc" id="L83">            System.out.println(&quot;Nodos evaluados: &quot; + nodosEvaluados);</span>
+<span class="nc" id="L84">            System.out.println(&quot;Nodos generados: &quot; + nodosGenerados);</span>
+
+            // Mostrar resultados
+<span class="nc bnc" id="L87" title="All 2 branches missed.">            if (pathFound) {</span>
+<span class="nc" id="L88">                System.out.println(&quot;\nCamino más corto encontrado de &quot; + sourceId + &quot; a &quot; + destId + &quot;:&quot;);</span>
+<span class="nc" id="L89">                System.out.printf(&quot;Distancia: %.2f\n&quot;, distance);</span>
+
+<span class="nc" id="L91">                System.out.print(&quot;Ruta: &quot;);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">                for (int i = 0; i &lt; path.size(); i++) {</span>
+<span class="nc" id="L93">                    System.out.print(path.get(i).getId());</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">                    if (i &lt; path.size() - 1) {</span>
+<span class="nc" id="L95">                        System.out.print(&quot; -&gt; &quot;);</span>
+                    }
+                }
+<span class="nc" id="L98">                System.out.println();</span>
+            } else {
+<span class="nc" id="L100">                System.out.println(&quot;\nNo se encontró camino de &quot; + sourceId + &quot; a &quot; + destId);</span>
+            }
+
+<span class="nc" id="L103">            scanner.close();</span>
+
+<span class="nc" id="L105">        } catch (IOException e) {</span>
+<span class="nc" id="L106">            System.err.println(&quot;Error al leer el archivo del grafo: &quot; + e.getMessage());</span>
+<span class="nc" id="L107">        }</span>
+<span class="nc" id="L108">    }</span>
+
+    /**
+     * Carga las posiciones de los vértices desde un archivo
+     * para usar en la función heurística.
+     * Formato del archivo:
+     * - Líneas iniciales con número de vértices y aristas (ignoradas)
+     * - Lista de posiciones: id_vertice x y
+     * - Lista de aristas al final (ignoradas)
+     * @param String filePath
+     * @param Graph graph
+     * @return Map&lt;Vertex, double[]&gt;
+     */
+    private static Map&lt;Vertex, double[]&gt; loadPositions(String filePath, Graph graph) {
+<span class="nc" id="L122">        Map&lt;Vertex, double[]&gt; positions = new HashMap&lt;&gt;();</span>
+
+        try {
+<span class="nc" id="L125">            Scanner scanner = new Scanner(new File(filePath));</span>
+            
+            // Ignorar las dos primeras líneas (número de vértices y aristas)
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            if (scanner.hasNextLine()) scanner.nextLine(); // Ignorar línea 1</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">            if (scanner.hasNextLine()) scanner.nextLine(); // Ignorar línea 2</span>
+
+            // Leer posiciones de los vértices
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            while (scanner.hasNextLine()) {</span>
+<span class="nc" id="L133">                String line = scanner.nextLine().trim();</span>
+
+                // Detener la lectura al encontrar la lista de aristas
+<span class="nc bnc" id="L136" title="All 2 branches missed.">                if (line.matches(&quot;^[A-Za-z]+\\s+[A-Za-z]+\\s+\\d+$&quot;)) {</span>
+<span class="nc" id="L137">                    break; // Línea coincide con el formato de una arista</span>
+                }
+
+                // Dividir la línea en partes
+<span class="nc" id="L141">                String[] parts = line.split(&quot;\\s+&quot;);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">                if (parts.length != 3) {</span>
+<span class="nc" id="L143">                    System.out.println(&quot;Línea inválida en el archivo de posiciones: &quot; + line);</span>
+<span class="nc" id="L144">                    continue; // Saltar líneas mal formateadas</span>
+                }
+
+<span class="nc" id="L147">                String id = parts[0];</span>
+                try {
+<span class="nc" id="L149">                    double x = Double.parseDouble(parts[1]);</span>
+<span class="nc" id="L150">                    double y = Double.parseDouble(parts[2]);</span>
+
+                    // Buscar el vértice correspondiente en el grafo
+<span class="nc" id="L153">                    Vertex vertex = null;</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">                    for (Vertex v : graph.getVertices()) {</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">                        if (v.getId().equals(id)) {</span>
+<span class="nc" id="L156">                            vertex = v;</span>
+<span class="nc" id="L157">                            break;</span>
+                        }
+<span class="nc" id="L159">                    }</span>
+
+<span class="nc bnc" id="L161" title="All 2 branches missed.">                    if (vertex == null) {</span>
+<span class="nc" id="L162">                        System.out.println(&quot;Vértice desconocido en el archivo de posiciones: &quot; + id);</span>
+<span class="nc" id="L163">                        continue;</span>
+                    }
+
+                    // Asignar las coordenadas al vértice
+<span class="nc" id="L167">                    positions.put(vertex, new double[]{x, y});</span>
+<span class="nc" id="L168">                } catch (NumberFormatException e) {</span>
+<span class="nc" id="L169">                    System.out.println(&quot;Error al analizar coordenadas en la línea: &quot; + line);</span>
+<span class="nc" id="L170">                }</span>
+<span class="nc" id="L171">            }</span>
+
+<span class="nc" id="L173">            scanner.close();</span>
+<span class="nc" id="L174">        } catch (IOException e) {</span>
+<span class="nc" id="L175">            System.err.println(&quot;Error al cargar posiciones: &quot; + e.getMessage());</span>
+<span class="nc" id="L176">            generateRandomPositions(graph, positions);</span>
+<span class="nc" id="L177">        }</span>
+
+<span class="nc" id="L179">        return positions;</span>
+    }
+
+    /**
+     * Genera posiciones aleatorias para los vértices en caso de que el archivo de posiciones no exista o sea inválido.
+     * @param Graph graph
+     * @param Map&lt;Vertex, double[]&gt; positions
+     */
+    private static void generateRandomPositions(Graph graph, Map&lt;Vertex, double[]&gt; positions) {
+<span class="nc" id="L188">        Random random = new Random(42); // Semilla fija para reproducibilidad</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">        for (Vertex v : graph.getVertices()) {</span>
+<span class="nc" id="L190">            double x = random.nextDouble() * 1000;</span>
+<span class="nc" id="L191">            double y = random.nextDouble() * 1000;</span>
+<span class="nc" id="L192">            positions.put(v, new double[]{x, y});</span>
+<span class="nc" id="L193">        }</span>
+<span class="nc" id="L194">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

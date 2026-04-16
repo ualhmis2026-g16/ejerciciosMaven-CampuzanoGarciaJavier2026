@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: ual.eda2.practica03.TSPBruteForceTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in ual.eda2.practica03.TSPBruteForceTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in ual.eda2.practica03.TSPBruteForceTest
 ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_TwoVertices -- Time elapsed: 0 s
-ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_NullGraph -- Time elapsed: 0.001 s
+ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_NullGraph -- Time elapsed: 0 s
 ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_EmptyGraph -- Time elapsed: 0 s
-ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_SingleVertex -- Time elapsed: 0 s
-ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_CompleteGraph -- Time elapsed: 0.001 s
-ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_InvalidStartVertex -- Time elapsed: 0 s
+ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_SingleVertex -- Time elapsed: 0.001 s
+ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_CompleteGraph -- Time elapsed: 0 s
+ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_InvalidStartVertex -- Time elapsed: 0.001 s
 ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_DifferentStartingPoints -- Time elapsed: 0 s
 ual.eda2.practica03.TSPBruteForceTest.testTspRecursive_LargeGraph -- Time elapsed: 0.001 s

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Poin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sesion05</a> &gt; <a href="index.source.html" class="el_package">ual.eda2.practica01</a> &gt; <span class="el_source">Poin.java</span></div><h1>Poin.java</h1><pre class="source lang-java linenums">package ual.eda2.practica01;
+
+import java.io.File;
+/**
+* La clase {@code Poin} representa un punto en el plano 2D con una coordenada {@code x} y {@code y},
+* así como un identificador único {@code id}.
+* Esta clase es útil para almacenar información sobre puntos en un plano cartesiano y asociarles un identificador.
+* 
+* &lt;p&gt;La clase también sobrescribe el método {@link #toString()} para proporcionar una representación
+* legible del punto.&lt;/p&gt;
+*/
+public class Poin {
+	 /**
+     * Coordenada en el eje X del punto.
+     */
+	public Double x;
+	
+	 /**
+     * Identificador único del punto.
+     */
+	public int id;
+	
+	 /**
+     * Coordenada en el eje Y del punto.
+     */
+	public Double y;
+ 
+	 /**
+     * Constructor que inicializa un nuevo punto con un identificador {@code id}, 
+     * una coordenada {@code x} y una coordenada {@code y}.
+     *
+     * @param id El identificador único del punto.
+     * @param x La coordenada X del punto.
+     * @param y La coordenada Y del punto.
+     */
+<span class="fc" id="L36">	Poin(int id, Double x, Double y) {</span>
+<span class="fc" id="L37">		this.x = x;</span>
+<span class="fc" id="L38">		this.y = y;</span>
+<span class="fc" id="L39">		this.id = id;</span>
+<span class="fc" id="L40">	}</span>
+	
+	 /**
+     * Devuelve una representación en cadena del objeto {@code Poin}.
+     * La representación incluye el valor de las coordenadas {@code x} y {@code y}.
+     *
+     * @return Una cadena que representa al punto con las coordenadas {@code x} y {@code y}.
+     */
+	@Override
+	public String toString() {
+<span class="nc" id="L50">		return &quot;punto: x=&quot; + x + &quot;, y=&quot; + y;</span>
+		
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
